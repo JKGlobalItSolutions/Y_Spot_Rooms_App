@@ -1,0 +1,9 @@
+
+
+class PageConst {
+
+  // *App Routing
+
+
+
+}
