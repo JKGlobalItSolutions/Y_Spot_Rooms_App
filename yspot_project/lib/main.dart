@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yspot_project/home_screen.dart';
+import 'package:yspot_project/language_screen.dart';
 import 'package:yspot_project/splash_screen.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashScreen(child: HomeScreen()),
+      home: SplashScreen(child: LanguageScreen()),
     );
   }
 }

@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text("Yspot"),
       ),
       body: const Center(
-        child: Text("Heme Screen of Yspot project"),
+        child: Text("Home Screen of Yspot project"),
       ),
     );
   }
