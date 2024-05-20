@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'features/language/login_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../../login_screen.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({super.key});
@@ -16,46 +16,45 @@ class _LanguageScreenState extends State<LanguageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red,
-      body: SingleChildScrollView(
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height * 0.90,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              margin: const EdgeInsets.only(
-                top: 320,
-                right: 200,
-              ),
-              child: const Text(
-                "Welcome",
-                style: TextStyle(
-                    fontSize: 40,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white),
+              margin: const EdgeInsets.only(left: 20),
+              child: DefaultTextStyle(
+                style: GoogleFonts.urbanist(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 45,
+                  color: Colors.white,
+                ),
+                child: const Text("Welcome"),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(
-                right: 80,
-              ),
-              child: const Text(
-                "Select your Language",
-                style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white),
+              margin: const EdgeInsets.only(left: 20),
+              child: DefaultTextStyle(
+                style: GoogleFonts.urbanist(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 24,
+                  color: Colors.white,
+                ),
+                child: const Text("Select your Language"),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(
-                top: 10,
-                right: 30,
-                left: 25,
-              ),
-              child: const Text(
-                "you can also change language in App settings after signing in",
-                style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w100,
-                    color: Colors.white),
+              margin: const EdgeInsets.only(left: 20, top: 5),
+              child: DefaultTextStyle(
+                style: GoogleFonts.urbanist(
+                  fontWeight: FontWeight.w300,
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+                child: const Text(
+                  "you can also change language in App settings after signing in",
+                ),
               ),
             ),
             const SizedBox(
@@ -121,21 +120,30 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     height: 20,
                   ),
                   ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const LoginScreen()));
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 10),
-                        padding: const EdgeInsets.all(7.0),
-                        child: const Text(
-                          "Continue",
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w400),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginScreen()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                    ),
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 20),
+                      child: DefaultTextStyle(
+                        style: GoogleFonts.urbanist(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 22,
+                          color: Colors.white,
                         ),
-                      ))
+                        child: const Text("Continue"),
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
@@ -145,3 +153,6 @@ class _LanguageScreenState extends State<LanguageScreen> {
     );
   }
 }
+
+//
+//

@@ -1,11 +1,8 @@
-
-
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatefulWidget {
-
   final Widget child;
   const SplashScreen({super.key, required this.child});
 
@@ -14,36 +11,34 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
-
   @override
   void initState() {
-
     Future.delayed(const Duration(seconds: 5)).then((value) {
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => widget.child),
-              (route) => false);
+          (route) => false);
     });
     super.initState();
-
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.red,
-      body: Column(
-        children: [
-          Center(child: Container(
-            margin: EdgeInsets.only(top: 500),
-            child: Image.asset("assets/logo assets/yspot_logo.png"),width: 160,height: 160,)),
-          Center(
-            child: Container(
-              margin: const EdgeInsets.only(
-                top: 40,
-                left: 20,
-                right: 20,
-              ),
+      body: Container(
+        margin: const EdgeInsets.only(top: 30),
+        width: MediaQuery.of(context).size.width * 0.95,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            FractionallySizedBox(
+              widthFactor: 0.40,
+              child: Image.asset("assets/logo assets/yspot_logo.png"),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 200, left: 50),
               child: DefaultTextStyle(
                 style: GoogleFonts.urbanist(
                   color: Colors.white,
@@ -52,16 +47,16 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 child: AnimatedTextKit(
                   animatedTexts: [
-                    TyperAnimatedText("Hello, traveler! let's find you the perfect room for your next adventure!!"),
+                    TyperAnimatedText(
+                        "Hello, traveler! let's find you the perfect room for your next adventure!!"),
                   ],
                   totalRepeatCount: 1,
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-
     );
   }
 }

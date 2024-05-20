@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yspot_project/home_screen.dart';
-import 'package:yspot_project/language_screen.dart';
+import 'package:yspot_project/features/language/language_screen.dart';
+import 'package:yspot_project/login_screen.dart';
 import 'package:yspot_project/splash_screen.dart';
 
 void main() {
@@ -19,8 +20,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashScreen(child: LanguageScreen()),
+      home: const LoginScreen(),
     );
   }
 }
+
+//SplashScreen(child: LanguageScreen()
 
