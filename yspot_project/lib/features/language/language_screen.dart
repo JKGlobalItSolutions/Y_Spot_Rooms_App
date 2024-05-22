@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../login_screen.dart';
+import '../authentication/login_screen.dart';
 
 class LanguageScreen extends StatefulWidget {
   const LanguageScreen({super.key});
@@ -27,7 +27,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
               child: DefaultTextStyle(
                 style: GoogleFonts.urbanist(
                   fontWeight: FontWeight.w600,
-                  fontSize: 45,
+                  fontSize: 20,
                   color: Colors.white,
                 ),
                 child: const Text("Welcome"),
@@ -37,7 +37,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
               margin: const EdgeInsets.only(left: 20),
               child: DefaultTextStyle(
                 style: GoogleFonts.urbanist(
-                  fontWeight: FontWeight.w400,
+                  fontWeight: FontWeight.w500,
                   fontSize: 24,
                   color: Colors.white,
                 ),
@@ -61,6 +61,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
               height: 20,
             ),
             Container(
+              height: 360,
               padding: const EdgeInsets.all(15),
               margin: const EdgeInsets.only(
                 left: 20,
@@ -143,7 +144,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                         child: const Text("Continue"),
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

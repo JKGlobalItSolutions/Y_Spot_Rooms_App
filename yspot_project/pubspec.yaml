@@ -37,10 +37,16 @@ dependencies:
   animated_text_kit:
   google_fonts:
 
+  #Otp page
+  otp_autofill:
+  otp_timer:
+  flutter_otp_text_field:
+
 
   #Firebase Dependencies
 
   firebase_core: ^2.31.0
+  firebase_auth:
 
 
 
