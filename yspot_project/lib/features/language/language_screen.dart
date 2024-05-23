@@ -15,7 +15,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: const Color(0xFFFF1717),
       body: SizedBox(
         height: MediaQuery.of(context).size.height * 0.90,
         child: Column(
@@ -73,50 +73,57 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 shrinkWrap: true,
                 children: [
                   Container(
-                    margin: const EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.red),
-                        borderRadius: BorderRadius.circular(8.0)),
-                    child: RadioListTile(
-                        title: const Text("English"),
-                        value: 'English',
-                        groupValue: selectedLanguage,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedLanguage = value!;
-                          });
-                        }),
+                      margin: const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: const Color(0xFFFF1717)),
+                          borderRadius: BorderRadius.circular(8.0)
+                      ),
+                      child: RadioListTile(
+                          title: const Text("English"),
+                          value: 'English',
+                          groupValue: selectedLanguage,
+                          onChanged: (value) {
+                            setState(() {
+                              selectedLanguage = value!;
+                            });
+                          }
+                      )
                   ),
                   Container(
-                    margin: const EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.red),
-                        borderRadius: BorderRadius.circular(8.0)),
-                    child: RadioListTile(
-                        title: const Text("Tamil"),
-                        value: 'Tamil',
-                        groupValue: selectedLanguage,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedLanguage = value!;
-                          });
-                        }),
+                      margin: const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: const Color(0xFFFF1717)),
+                          borderRadius: BorderRadius.circular(8.0)
+                      ),
+                      child: RadioListTile(
+                          title: const Text("தமிழ்"),
+                          value: 'Tamil',
+                          groupValue: selectedLanguage,
+                          onChanged: (value) {
+                            setState(() {
+                              selectedLanguage = value!;
+                            });
+                          }
+                      )
                   ),
                   Container(
-                    margin: const EdgeInsets.all(8.0),
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.red),
-                        borderRadius: BorderRadius.circular(8.0)),
-                    child: RadioListTile(
-                        title: const Text("Hindi"),
-                        value: 'Hindi',
-                        groupValue: selectedLanguage,
-                        onChanged: (value) {
-                          setState(() {
-                            selectedLanguage = value!;
-                          });
-                        }),
+                      margin: const EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                          border: Border.all(color: const Color(0xFFFF1717)),
+                          borderRadius: BorderRadius.circular(8.0)
+                      ),
+                      child: RadioListTile(
+                          title: const Text("हिन्दी"),
+                          value: 'Hindi',
+                          groupValue: selectedLanguage,
+                          onChanged: (value) {
+                            setState(() {
+                              selectedLanguage = value!;
+                            });
+                          }
+                      )
                   ),
+
                   const SizedBox(
                     height: 20,
                   ),
@@ -128,7 +135,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                               builder: (context) => const LoginScreen()));
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
+                      backgroundColor: const Color(0xFFFF1717),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),

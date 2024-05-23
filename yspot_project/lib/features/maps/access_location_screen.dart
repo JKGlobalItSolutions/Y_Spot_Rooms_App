@@ -1,5 +1,4 @@
 
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yspot_project/home_screen.dart';
@@ -15,7 +14,7 @@ class _AccessLocationScreenState extends State<AccessLocationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: const Color(0xFFFF1717),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,7 +63,7 @@ class _AccessLocationScreenState extends State<AccessLocationScreen> {
                               builder: (context) => const HomeScreen()));
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
+                      backgroundColor: const Color(0xFFFF1717),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),
@@ -92,7 +91,7 @@ class _AccessLocationScreenState extends State<AccessLocationScreen> {
                               builder: (context) => const HomeScreen()));
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
+                      backgroundColor: const Color(0xFFFF1717),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),

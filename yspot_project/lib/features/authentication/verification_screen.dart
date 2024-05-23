@@ -17,7 +17,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: const Color(0xFFFF1717),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -99,7 +99,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                           style: GoogleFonts.urbanist(
                             fontWeight: FontWeight.w400,
                             fontSize: 16,
-                            color: Colors.red,
+                            color: const Color(0xFFFF1717),
                           ),
                           child: const Text("resend code"),
                         ),
@@ -117,7 +117,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                               builder: (context) => const AccessLocationScreen()));
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
+                      backgroundColor: const Color(0xFFFF1717),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),

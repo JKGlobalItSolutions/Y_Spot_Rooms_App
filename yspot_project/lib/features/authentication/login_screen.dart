@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yspot_project/features/authentication/sign_up_screen.dart';
 
+import 'verification_screen.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -10,10 +12,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: const Color(0xFFFF1717),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -39,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(15)),
               width: 500,
-              height: 425,
+              height: 470,
               child: Column(
                 children: [
                   Container(
@@ -71,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     alignment: Alignment.centerLeft,
                     child: DefaultTextStyle(
                       style: GoogleFonts.urbanist(
-                        fontWeight: FontWeight.w300,
+                        fontWeight: FontWeight.w400,
                         fontSize: 24,
                         color: Colors.black,
                       ),
@@ -82,30 +85,123 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 300,
                     height: 38,
                     margin: const EdgeInsets.only(top: 20),
-                    child: const TextField(
+                    child: TextField(
+                      obscureText: _obscureText,
                       decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.lock_outlined),
-                        suffixIcon: Icon(Icons.remove_red_eye_rounded),
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.red),
+                        prefixIcon: const Icon(Icons.lock_outlined),
+                        suffixIcon: IconButton(
+                          icon: Icon(_obscureText
+                              ? Icons.visibility
+                              : Icons.visibility_off),
+                          onPressed: () {
+                            setState(() {
+                              _obscureText = !_obscureText;
+                            });
+                          },
+                        ),
+                        border: const OutlineInputBorder(
+                          borderSide: BorderSide(color: Color(0xFFFF1717)),
                         ),
                       ),
                     ),
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 10, left: 200),
-                    child: DefaultTextStyle(
-                      style: GoogleFonts.urbanist(
-                        fontWeight: FontWeight.w300,
-                        fontSize: 10,
-                        color: Colors.black,
+                    child: GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                          context: context,
+                          backgroundColor: Colors.white,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(25.0),
+                            ),
+                          ),
+                          builder: (BuildContext context) {
+                            return Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Card(
+                                    color: Colors.blueAccent,
+                                    child: ListTile(
+                                      leading: const Icon(Icons.email,
+                                          color: Colors.white),
+                                      title: Text(
+                                        'Verify with Email',
+                                        style: GoogleFonts.urbanist(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Card(
+                                    color: Colors.green,
+                                    child: ListTile(
+                                      leading: const Icon(Icons.phone,
+                                          color: Colors.white),
+                                      title: Text(
+                                        'Verify with Phone Number',
+                                        style: GoogleFonts.urbanist(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        );
+                      },
+                      child: DefaultTextStyle(
+                        style: GoogleFonts.urbanist(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 15,
+                          color: Colors.blue,
+                        ),
+                        child: const Text("Forgot Password?"),
                       ),
-                      child: const Text("Forgot Password?"),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 10),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const VerificationScreen()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFFF1717),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 30, right: 30),
+                        child: DefaultTextStyle(
+                          style: GoogleFonts.urbanist(
+                            fontWeight: FontWeight.normal,
+                            fontSize: 22,
+                            color: Colors.white,
+                          ),
+                          child: const Text("Login"),
+                        ),
+                      ),
                     ),
                   ),
                   Container(
                     margin: const EdgeInsets.only(
-                      top: 10,
+                      top: 5,
                     ),
                     child: const Text(
                       "or",
@@ -124,7 +220,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   Container(
                     margin: const EdgeInsets.only(
-                      top: 10,
+                      top: 5,
                     ),
                     child: GestureDetector(
                       onTap: () {

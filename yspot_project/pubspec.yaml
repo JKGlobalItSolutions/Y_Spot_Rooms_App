@@ -37,6 +37,9 @@ dependencies:
   animated_text_kit:
   google_fonts:
 
+  #Language feature
+  flutter_localization:
+
   #Otp page
   otp_autofill:
   otp_timer:

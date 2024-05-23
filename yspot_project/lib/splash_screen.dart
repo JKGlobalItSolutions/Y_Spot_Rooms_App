@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SplashScreen extends StatefulWidget {
   final Widget child;
-  const SplashScreen({super.key, required this.child});
+  const SplashScreen({Key? key, required this.child}) : super(key: key);
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -13,11 +13,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 5)).then((value) {
+    Future.delayed(const Duration(seconds: 3)).then((value) {
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => widget.child),
-          (route) => false);
+              (route) => false);
     });
     super.initState();
   }
@@ -25,37 +25,55 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          FractionallySizedBox(
-            widthFactor: 0.40,
-            child: Image.asset(
-              "assets/logo assets/yspot_logo.png",
-              alignment: Alignment.center,
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(top: 350),
-            padding: const EdgeInsets.all(20),
-            child: DefaultTextStyle(
-              style: GoogleFonts.urbanist(
-                color: Colors.white,
-                fontSize: 17.0,
-                fontWeight: FontWeight.bold,
-              ),
-              child: AnimatedTextKit(
-                animatedTexts: [
-                  TyperAnimatedText(
-                      "Hello, traveler! let's find you the perfect room for your next adventure!!"),
-                ],
-                totalRepeatCount: 1,
+      backgroundColor: const Color(0xFFFF1717),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 2,
+              child: FractionallySizedBox(
+                widthFactor: 0.6,
+                child: Image.asset(
+                  "assets/logo assets/yspot_logo.png",
+                  alignment: Alignment.center,
+                ),
               ),
             ),
-          ),
-        ],
+            const SizedBox(height: 16), // Add some space between the image and the text
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: const EdgeInsets.all(20),
+                child: DefaultTextStyle(
+                  style: GoogleFonts.urbanist(
+                    color: Colors.white,
+                    fontSize: 17.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      FadeAnimatedText(
+                        "Hello, traveler! let's find you the perfect room for your next adventure!!",
+                        duration: const Duration(seconds: 3),
+                        textStyle: GoogleFonts.urbanist(
+                          color: Colors.white,
+                          fontSize: 17.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                    totalRepeatCount: 1,
+                    isRepeatingAnimation: false,
+                    onTap: () {},
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
+
