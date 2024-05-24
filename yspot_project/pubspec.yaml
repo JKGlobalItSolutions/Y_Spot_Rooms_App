@@ -41,15 +41,21 @@ dependencies:
   flutter_localization:
 
   #Otp page
+  intl_phone_field:
   otp_autofill:
   otp_timer:
   flutter_otp_text_field:
 
 
   #Firebase Dependencies
-
   firebase_core: ^2.31.0
   firebase_auth:
+  google_sign_in:
+
+  #Maps Dependencies
+  geocoding:
+  geolocator:
+
 
 
 
