@@ -30,17 +30,18 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 50,),
             Expanded(
               flex: 2,
               child: FractionallySizedBox(
-                widthFactor: 0.6,
+                widthFactor: 0.4,
                 child: Image.asset(
                   "assets/logo assets/yspot_logo.png",
                   alignment: Alignment.center,
                 ),
               ),
             ),
-            const SizedBox(height: 16), // Add some space between the image and the text
+            const SizedBox(height: 280), // Add some space between the image and the text
             Expanded(
               flex: 1,
               child: Container(
@@ -59,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         textStyle: GoogleFonts.urbanist(
                           color: Colors.white,
                           fontSize: 17.0,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                     ],

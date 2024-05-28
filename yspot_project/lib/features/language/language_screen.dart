@@ -60,24 +60,23 @@ class _LanguageScreenState extends State<LanguageScreen> {
             const SizedBox(
               height: 20,
             ),
-            Container(
-              height: 360,
-              padding: const EdgeInsets.all(15),
-              margin: const EdgeInsets.only(
-                left: 20,
-                right: 20,
+            Card( // Wrap the container with Card
+              elevation: 4, // Adjust the elevation for slight shadow
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
               ),
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(15)),
-              child: ListView(
-                shrinkWrap: true,
-                children: [
-                  Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              child: Container(
+                height: 360,
+                padding: const EdgeInsets.all(15),
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    Container(
                       margin: const EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
                           border: Border.all(color: const Color(0xFFFF1717)),
-                          borderRadius: BorderRadius.circular(8.0)
-                      ),
+                          borderRadius: BorderRadius.circular(8.0)),
                       child: RadioListTile(
                           title: const Text("English"),
                           value: 'English',
@@ -86,15 +85,13 @@ class _LanguageScreenState extends State<LanguageScreen> {
                             setState(() {
                               selectedLanguage = value!;
                             });
-                          }
-                      )
-                  ),
-                  Container(
+                          }),
+                    ),
+                    Container(
                       margin: const EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
                           border: Border.all(color: const Color(0xFFFF1717)),
-                          borderRadius: BorderRadius.circular(8.0)
-                      ),
+                          borderRadius: BorderRadius.circular(8.0)),
                       child: RadioListTile(
                           title: const Text("தமிழ்"),
                           value: 'Tamil',
@@ -103,15 +100,13 @@ class _LanguageScreenState extends State<LanguageScreen> {
                             setState(() {
                               selectedLanguage = value!;
                             });
-                          }
-                      )
-                  ),
-                  Container(
+                          }),
+                    ),
+                    Container(
                       margin: const EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
                           border: Border.all(color: const Color(0xFFFF1717)),
-                          borderRadius: BorderRadius.circular(8.0)
-                      ),
+                          borderRadius: BorderRadius.circular(8.0)),
                       child: RadioListTile(
                           title: const Text("हिन्दी"),
                           value: 'Hindi',
@@ -120,39 +115,39 @@ class _LanguageScreenState extends State<LanguageScreen> {
                             setState(() {
                               selectedLanguage = value!;
                             });
-                          }
-                      )
-                  ),
-
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginScreen()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFFF1717),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
+                          }),
                     ),
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 20),
-                      child: DefaultTextStyle(
-                        style: GoogleFonts.urbanist(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 22,
-                          color: Colors.white,
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()));
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFFFF1717),
+                        padding: const EdgeInsets.only(top: 10,bottom: 10),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
                         ),
-                        child: const Text("Continue"),
+                      ),
+                      child: Container(
+                        margin: const EdgeInsets.only(left: 20),
+                        child: DefaultTextStyle(
+                          style: GoogleFonts.urbanist(
+                            fontWeight: FontWeight.normal,
+                            fontSize: 22,
+                            color: Colors.white,
+                          ),
+                          child: const Text("Continue"),
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ],
@@ -161,6 +156,3 @@ class _LanguageScreenState extends State<LanguageScreen> {
     );
   }
 }
-
-//
-//

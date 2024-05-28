@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:yspot_project/home_screen.dart';
 
 import '../maps/access_location_screen.dart';
 
@@ -222,20 +223,27 @@ class _VerificationScreenState extends State<VerificationScreen> {
                   const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
-                      _verifyOTP(context);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()));
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
+                      backgroundColor: const Color(0xFFFF1717),
+                      padding: const EdgeInsets.only(top: 10, bottom: 10),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5),
                       ),
                     ),
-                    child: Text(
-                      "Verify & Proceed",
-                      style: GoogleFonts.urbanist(
-                        fontWeight: FontWeight.normal,
-                        fontSize: 22,
-                        color: Colors.white,
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 40, right: 40),
+                      child: DefaultTextStyle(
+                        style: GoogleFonts.urbanist(
+                          fontWeight: FontWeight.normal,
+                          fontSize: 22,
+                          color: Colors.white,
+                        ),
+                        child: const Text("Verify & proceed"),
                       ),
                     ),
                   ),
