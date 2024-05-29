@@ -124,7 +124,7 @@ class _hotellistState extends State<hotellist> {
               child: ListView(
                 children: [
                   buildHotelCard(
-                    "assets/hotel1.jpg",
+                    "assets/sample assets/hotel1.jpg",
                     "Ramana Towers",
                     "Opp to Ramana",
                     "24-Room Service",
@@ -132,7 +132,7 @@ class _hotellistState extends State<hotellist> {
                     "4.2",
                   ),
                   buildHotelCard(
-                    "assets/cabins.jpeg",
+                    "assets/sample assets/cabins.jpeg",
                     "MPS Saai Residency",
                     "Opp to Ramana",
                     "24-Room Service",
@@ -155,7 +155,7 @@ class _hotellistState extends State<hotellist> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => roomsdetails(),
+              builder: (context) => const roomsdetails(),
             ));
       },
       child: Card(

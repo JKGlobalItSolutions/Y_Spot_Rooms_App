@@ -40,8 +40,8 @@ class _viewcartState extends State<viewcart> {
                     BoxShadow(
                       color: Colors.grey,
                       spreadRadius: 5,
-                    )
-                  ]),
+                    ),
+                  ],),
               child: const Column(
                 children: [
                   Text(
@@ -140,7 +140,7 @@ class _viewcartState extends State<viewcart> {
                           fontWeight: FontWeight.bold,
                           fontSize: 25),
                     ),
-                  )),
+                  ),),
             ),
             const SizedBox(
               height: 10,
@@ -148,21 +148,22 @@ class _viewcartState extends State<viewcart> {
             InkWell(
               onTap: () {},
               child: Container(
-                  height: 50,
-                  width: 350,
-                  decoration: const BoxDecoration(
-                      color: Colors.grey,
-                      borderRadius: BorderRadius.all(Radius.circular(15))),
-                  child: const Center(
-                    child: Text(
-                      "Cancel Booking",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25),
-                    ),
-                  )),
-            )
+                height: 50,
+                width: 350,
+                decoration: const BoxDecoration(
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                child: const Center(
+                  child: Text(
+                    "Cancel Booking",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

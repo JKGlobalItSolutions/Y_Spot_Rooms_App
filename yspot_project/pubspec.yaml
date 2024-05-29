@@ -36,46 +36,50 @@ dependencies:
   flutter_screenutil:
   animated_text_kit:
   google_fonts:
+  curved_navigation_bar: ^1.0.3
+  syncfusion_flutter_datepicker: ^25.2.4
+  intl: any
 
   #Language feature
+
   flutter_localization:
 
+
   #Otp page
+
   intl_phone_field:
   otp_autofill:
   otp_timer:
   flutter_otp_text_field:
 
+
   #other
 
-  curved_navigation_bar: ^1.0.3
-  syncfusion_flutter_datepicker: ^25.2.4
-  google_maps_flutter: ^2.6.1
-  location: ^6.0.2
-  google_polyline_points: ^0.0.3
   flutter_svg: ^2.0.10+1
-  maps_launcher: ^2.2.1
   filter_list: ^1.0.2
   expandable: ^5.0.1
   staggered_grid_view_flutter: ^0.0.4
   data_filters: ^1.0.2
-  intl: any
   url_launcher: any
-  firebase_storage: ^11.7.6
-  cloud_firestore: ^4.17.4
-
-  firebase_app_check: ^0.2.2+6
-  flutter_facebook_auth: ^7.0.0
 
 
   #Firebase Dependencies
+
   firebase_core: ^2.31.0
   firebase_auth:
   google_sign_in:
+  firebase_storage: ^11.7.6
+  cloud_firestore: ^4.17.4
+
 
   #Maps Dependencies
-  geocoding:
+
+  google_maps_flutter: ^2.6.1
+  google_polyline_points: ^0.0.3
+  location: ^6.0.2
+  maps_launcher: ^2.2.1
   geolocator:
+
 
 
 
@@ -113,6 +117,8 @@ flutter:
      - assets/
      - assets/logo assets/
      - assets/button assets/
+     - assets/sample assets/
+     - assets/icons/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

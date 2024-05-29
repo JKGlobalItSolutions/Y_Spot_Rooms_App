@@ -107,18 +107,18 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                color: Colors.redAccent.shade400,
+                color: const Color(0xFFFF1717),
                 child: Image.asset(
-                  "assets/LOGO.png",
+                  "assets/logo assets/yspot_logo.png",
                   height: screenHeight * 0.10,
                   width: screenWidth,
                   fit: BoxFit.contain,
                 ),
               ),
               Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(6),
                 width: screenWidth,
-                color: Colors.redAccent.shade400,
+                color: const Color(0xFFFF1717),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
@@ -138,12 +138,12 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               const SizedBox(height: 10),
               Container(
-                padding: const EdgeInsets.all(8),
+                padding: const EdgeInsets.all(10),
                 height: 300,
                 width: screenWidth * 0.9,
-                decoration: BoxDecoration(
-                  color: Colors.redAccent.shade400,
-                  borderRadius: const BorderRadius.all(Radius.circular(15)),
+                decoration: const BoxDecoration(
+                  color: Color(0xFFFF1717),
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -158,13 +158,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: screenWidth * 0.85,
                         decoration: const BoxDecoration(
                           color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
                         ),
                         child: ListTile(
                           leading: const Icon(Icons.calendar_today),
                           title: Text(
                             _selectedRange.startDate != null &&
-                                _selectedRange.endDate != null
+                                    _selectedRange.endDate != null
                                 ? '${DateFormat('dd/MM/yyyy').format(_selectedRange.startDate!)} - ${DateFormat('dd/MM/yyyy').format(_selectedRange.endDate!)}'
                                 : 'Select date range',
                           ),
@@ -185,10 +185,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Container(
                         height: 50,
                         width: screenWidth * 0.85,
-                        decoration: BoxDecoration(
-                          color: Colors.red[900],
-                          borderRadius:
-                          const BorderRadius.all(Radius.circular(15)),
+                        decoration: const BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
                         ),
                         child: const Center(
                           child: Text(
@@ -258,9 +257,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       Stack(children: [
                         ClipRRect(
                           borderRadius:
-                          const BorderRadius.all(Radius.circular(5)),
+                              const BorderRadius.all(Radius.circular(5)),
                           child: Image.asset(
-                            "assets/KODAIKANAL.jpg",
+                            "assets/sample assets/kodaikanal.jpg",
                             fit: BoxFit.fill,
                             height: 100,
                             width: 180,
@@ -277,18 +276,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            ))
-                      ]),
+                            ),)
+                      ],),
                       const SizedBox(
                         width: 5,
                       ),
                       Stack(children: [
                         ClipRRect(
                           borderRadius:
-                          const BorderRadius.all(Radius.circular(5)),
+                              const BorderRadius.all(Radius.circular(5)),
                           child: Container(
                             child: Image.asset(
-                              "assets/isha.jpeg",
+                              "assets/sample assets/isha.jpeg",
                               fit: BoxFit.fill,
                               height: 100,
                               width: 180,
@@ -322,9 +321,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       Stack(children: [
                         ClipRRect(
                           borderRadius:
-                          const BorderRadius.all(Radius.circular(5)),
+                              const BorderRadius.all(Radius.circular(5)),
                           child: Image.asset(
-                            "assets/bangalore.jpg",
+                            "assets/sample assets/bangalore.jpg",
                             fit: BoxFit.cover,
                             height: 120,
                             width: 120,
@@ -349,10 +348,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       Stack(children: [
                         ClipRRect(
                           borderRadius:
-                          const BorderRadius.all(Radius.circular(5)),
+                              const BorderRadius.all(Radius.circular(5)),
                           child: Container(
                             child: Image.asset(
-                              "assets/mysore.jpg",
+                              "assets/sample assets/mysore.jpg",
                               fit: BoxFit.cover,
                               height: 120,
                               width: 120,
@@ -378,10 +377,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       Stack(children: [
                         ClipRRect(
                           borderRadius:
-                          const BorderRadius.all(Radius.circular(5)),
+                              const BorderRadius.all(Radius.circular(5)),
                           child: Container(
                             child: Image.asset(
-                              "assets/mumbai.jpg",
+                              "assets/sample assets/mumbai.jpg",
                               fit: BoxFit.cover,
                               height: 120,
                               width: 120,
@@ -447,10 +446,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           ClipRRect(
                             borderRadius:
-                            const BorderRadius.all(Radius.circular(5)),
+                                const BorderRadius.all(Radius.circular(5)),
                             child: Container(
                               child: Image.asset(
-                                "assets/Goa.webp",
+                                "assets/sample assets/Goa.webp",
                                 fit: BoxFit.cover,
                                 height: 120,
                                 width: 120,
@@ -473,10 +472,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           ClipRRect(
                             borderRadius:
-                            const BorderRadius.all(Radius.circular(5)),
+                                const BorderRadius.all(Radius.circular(5)),
                             child: Container(
                               child: Image.asset(
-                                "assets/mumbai.jpg",
+                                "assets/sample assets/mumbai.jpg",
                                 fit: BoxFit.cover,
                                 height: 120,
                                 width: 120,
@@ -499,10 +498,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           ClipRRect(
                             borderRadius:
-                            const BorderRadius.all(Radius.circular(5)),
+                                const BorderRadius.all(Radius.circular(5)),
                             child: Container(
                               child: Image.asset(
-                                "assets/ooty.jpg",
+                                "assets/sample assets/ooty.jpg",
                                 fit: BoxFit.cover,
                                 height: 120,
                                 width: 120,
@@ -551,10 +550,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           ClipRRect(
                             borderRadius:
-                            const BorderRadius.all(Radius.circular(5)),
+                                const BorderRadius.all(Radius.circular(5)),
                             child: Container(
                               child: Image.asset(
-                                "assets/apartments.webp",
+                                "assets/sample assets/apartments.webp",
                                 fit: BoxFit.cover,
                                 height: 120,
                                 width: 120,
@@ -572,10 +571,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           ClipRRect(
                             borderRadius:
-                            const BorderRadius.all(Radius.circular(5)),
+                                const BorderRadius.all(Radius.circular(5)),
                             child: Container(
                               child: Image.asset(
-                                "assets/hotels.jpg",
+                                "assets/sample assets/hotels.jpg",
                                 fit: BoxFit.cover,
                                 height: 120,
                                 width: 120,
@@ -593,10 +592,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           ClipRRect(
                             borderRadius:
-                            const BorderRadius.all(Radius.circular(5)),
+                                const BorderRadius.all(Radius.circular(5)),
                             child: Container(
                               child: Image.asset(
-                                "assets/villa.webp",
+                                "assets/sample assets/villa.webp",
                                 fit: BoxFit.cover,
                                 height: 120,
                                 width: 120,
@@ -621,10 +620,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           ClipRRect(
                             borderRadius:
-                            const BorderRadius.all(Radius.circular(5)),
+                                const BorderRadius.all(Radius.circular(5)),
                             child: Container(
                               child: Image.asset(
-                                "assets/resort.webp",
+                                "assets/sample assets/resort.webp",
                                 fit: BoxFit.cover,
                                 height: 120,
                                 width: 120,
@@ -642,10 +641,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           ClipRRect(
                             borderRadius:
-                            const BorderRadius.all(Radius.circular(5)),
+                                const BorderRadius.all(Radius.circular(5)),
                             child: Container(
                               child: Image.asset(
-                                "assets/cabins.jpeg",
+                                "assets/sample assets/cabins.jpeg",
                                 fit: BoxFit.cover,
                                 height: 120,
                                 width: 120,
@@ -680,7 +679,7 @@ class _HomeScreenState extends State<HomeScreen> {
         side: const BorderSide(
           color: Colors.white,
         ),
-        backgroundColor: Colors.redAccent.shade400,
+        backgroundColor: const Color(0xFFFF1717),
         avatar: Icon(
           icon,
           color: Colors.white,
@@ -695,7 +694,7 @@ class _HomeScreenState extends State<HomeScreen> {
       width: MediaQuery.of(context).size.width * 0.85,
       decoration: const BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(15)),
+        borderRadius: BorderRadius.all(Radius.circular(6)),
       ),
       child: Column(
         children: [
@@ -793,7 +792,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.all(Radius.circular(50)),
                   ),
                   child: Image.asset(
-                    "assets/Goa.webp",
+                    "assets/sample assets/Goa.webp",
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -852,7 +851,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.all(Radius.circular(50)),
                   ),
                   child: Image.asset(
-                    "assets/park.webp",
+                    "assets/sample assets/park.webp",
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -870,8 +869,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Colors.black,
                         ),
                       ),
-                      Divider(
-                        color: Colors.redAccent.shade400,
+                      const Divider(
+                        color: Color(0xFFFF1717),
                         thickness: 1,
                         indent: 10,
                         endIndent: 200,
@@ -881,7 +880,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: Container(
                           height: 20,
                           width: 90,
-                          color: Colors.redAccent.shade400,
+                          color: const Color(0xFFFF1717),
                           child: const Center(
                             child: Text(
                               "Explore now",

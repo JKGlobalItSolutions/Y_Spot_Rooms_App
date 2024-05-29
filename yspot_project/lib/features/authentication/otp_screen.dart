@@ -6,21 +6,21 @@ class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
 
   @override
-  State<OtpScreen> createState() => _VerificationScreenState();
+  State<OtpScreen> createState() => _OtpScreenState();
 }
 
-class _VerificationScreenState extends State<OtpScreen> {
+class _OtpScreenState extends State<OtpScreen> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Scaffold(
-        backgroundColor: const Color(0xFFFF1717),
-        body: Center(
+    return Scaffold(
+      backgroundColor: const Color(0xFFFF1717),
+      body: SingleChildScrollView(
+        child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                margin: const EdgeInsets.only(top: 130),
+                margin: const EdgeInsets.only(top: 150),
                 child: Text(
                   "Verification Code",
                   style: GoogleFonts.urbanist(
@@ -38,7 +38,7 @@ class _VerificationScreenState extends State<OtpScreen> {
                     margin: const EdgeInsets.only(
                         left: 20, right: 20, bottom: 20, top: 20),
                     decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(15)),
+                    BoxDecoration(borderRadius: BorderRadius.circular(15)),
                     width: 500,
                     height: 300,
                     child: Column(
@@ -52,18 +52,19 @@ class _VerificationScreenState extends State<OtpScreen> {
                           ),
                         ),
                         Container(
-                          width: 300,
-                          height: 60,
+                          width: 350,
+                          height: 50,
                           margin: const EdgeInsets.only(top: 15),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               for (int i = 0; i < 6; i++)
                                 const SizedBox(
-                                  width: 50,
+                                  width: 45,
+                                  height: 40,
                                   child: TextField(
                                     maxLength:
-                                        1, // Allow only one character input
+                                    1, // Allow only one character input
                                     keyboardType: TextInputType
                                         .number, // Set keyboard type to number
                                     decoration: InputDecoration(
@@ -71,7 +72,17 @@ class _VerificationScreenState extends State<OtpScreen> {
                                         borderSide: BorderSide(
                                             color: Color(0xFFFF1717)),
                                       ),
-                                    ),
+                                      counterText: '',
+                                      focusedBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFFF1717),
+                                        ),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFFF1717),
+                                        ),
+                                      ),),
                                   ),
                                 ),
                             ],
@@ -93,7 +104,7 @@ class _VerificationScreenState extends State<OtpScreen> {
                           children: [
                             Container(
                                 margin:
-                                    const EdgeInsets.only(top: 15, left: 30),
+                                const EdgeInsets.only(top: 15, left: 30),
                                 child: Text(
                                   "Don't receive otp code?",
                                   style: GoogleFonts.urbanist(
@@ -147,19 +158,17 @@ class _VerificationScreenState extends State<OtpScreen> {
                 ),
               ),
               Container(
-                  padding: const EdgeInsets.only(
-                    top: 20,
-                    left: 20,
-                    right: 30,
+                width: 550,
+                margin: const EdgeInsets.only(top: 20,left: 20,right: 20),
+                child: Text(
+                  "Security at your fingertips.Enter to safeguard your bookings",
+                  style: GoogleFonts.urbanist(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
                   ),
-                  child: Text(
-                    "Security at your fingertips.Enter to safeguard your bookings",
-                    style: GoogleFonts.urbanist(
-                      color: Colors.white,
-                      fontSize: 17,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  )),
+                ),
+              ),
             ],
           ),
         ),

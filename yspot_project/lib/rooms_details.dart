@@ -10,6 +10,7 @@ class roomsdetails extends StatefulWidget {
 }
 
 class _roomsdetailsState extends State<roomsdetails> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +35,7 @@ class _roomsdetailsState extends State<roomsdetails> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: Colors.red[900],
+        backgroundColor:const Color(0xFFFF1717),
         // actions: [Image.asset("assets/top logo.jpg")],
       ),
       body: SingleChildScrollView(
@@ -57,50 +58,43 @@ class _roomsdetailsState extends State<roomsdetails> {
               height: 300,
               width: 300,
               child: Image.asset(
-                'assets/hotel1.jpg',
+                'assets/sample assets/hotel1.jpg',
               ),
             ),
             const SizedBox(height: 5),
-            Container(
-              child: Column(
-                children: [
-                  const Text(textAlign: TextAlign.left,
-                    "Buddha Elite Residency",
-                    style: TextStyle(color: Colors.red, fontSize: 25),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  const Text(textAlign: TextAlign.left,
-                    "Description",
-                    style: TextStyle(
-                        color: Colors.red, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-
-                  Container(
-                    child: const Row(
-                      children: [
-                        Icon(Icons.location_on_outlined),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "Near vijaya Nagar",
-                          style: TextStyle(color: Colors.black),
-                        ),
-
-                      ],
+            const Column(
+              children: [
+                Text(textAlign: TextAlign.left,
+                  "Buddha Elite Residency",
+                  style: TextStyle(color: Colors.red, fontSize: 25),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Text(textAlign: TextAlign.left,
+                  "Description",
+                  style: TextStyle(
+                      color: Colors.red, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  children: [
+                    Icon(Icons.location_on_outlined),
+                    SizedBox(
+                      width: 5,
                     ),
-
-                  ),
-                  const Text("Did you know what that we've got 2.5 Crore booking "
-                      "since "),
-                ],
-              ),
-            )
+                    Text(
+                      "Near vijaya Nagar",
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ],
+                ),
+                Text("Did you know what that we've got 2.5 Crore booking "
+                    "since "),
+              ],
+            ),
           ],
         ),
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'login_screen.dart';
 import 'otp_screen.dart';
 
@@ -12,10 +11,11 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+  TextEditingController();
+  bool _obscurePassword = true;
+  bool _obscureConfirmPassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -61,30 +61,46 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         TextField(
                           decoration: InputDecoration(
-                            prefixIcon:
-                                const Icon(Icons.account_circle_outlined),
+                            prefixIcon: const Icon(Icons.account_circle_outlined),
                             labelText: "Enter Username",
-                            labelStyle: GoogleFonts.urbanist(),
+                            labelStyle: GoogleFonts.urbanist(color: Colors.black),
                             border: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xFFFF1717)),
+                              borderSide: BorderSide(
+                                  color: Color(0xFFFF1717)),
                             ),
+                            counterText: '',
                             focusedBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xFFFF1717)),
+                              borderSide: BorderSide(
+                                color: Color(0xFFFF1717),
+                              ),
+                            ),
+                            enabledBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFFF1717),
+                              ),
                             ),
                           ),
                         ),
                         const SizedBox(height: 15),
                         TextField(
-                          obscureText: true,
                           decoration: InputDecoration(
                             prefixIcon: const Icon(Icons.mail),
                             labelText: "Enter Email",
-                            labelStyle: GoogleFonts.urbanist(),
+                            labelStyle: GoogleFonts.urbanist(color: Colors.black),
                             border: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xFFFF1717)),
+                              borderSide: BorderSide(
+                                  color: Color(0xFFFF1717)),
                             ),
+                            counterText: '',
                             focusedBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xFFFF1717)),
+                              borderSide: BorderSide(
+                                color: Color(0xFFFF1717),
+                              ),
+                            ),
+                            enabledBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFFF1717),
+                              ),
                             ),
                           ),
                         ),
@@ -95,50 +111,100 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           decoration: InputDecoration(
                             prefixIcon: const Icon(Icons.numbers),
                             labelText: "Enter Phone Number",
-                            labelStyle: GoogleFonts.urbanist(),
+                            labelStyle: GoogleFonts.urbanist(color: Colors.black),
                             border: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xFFFF1717)),
+                              borderSide:BorderSide(
+                                  color: Color(0xFFFF1717)),
                             ),
+                            counterText: '',
                             focusedBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xFFFF1717)),
+                              borderSide: BorderSide(
+                                color: Color(0xFFFF1717),
+                              ),
+                            ),
+                            enabledBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFFF1717),
+                              ),
                             ),
                           ),
                         ),
                         const SizedBox(height: 15),
                         TextField(
-                          obscureText: true,
+                          controller: _passwordController,
+                          obscureText: _obscurePassword,
                           decoration: InputDecoration(
                             prefixIcon: const Icon(Icons.lock_outlined),
-                            suffixIcon:
-                                const Icon(Icons.remove_red_eye_rounded),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _obscurePassword
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _obscurePassword = !_obscurePassword;
+                                });
+                              },
+                            ),
                             labelText: "Enter Password",
-                            labelStyle: GoogleFonts.urbanist(),
+                            labelStyle: GoogleFonts.urbanist(color: Colors.black),
                             border: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xFFFF1717)),
+                              borderSide:BorderSide(
+                                  color: Color(0xFFFF1717)),
                             ),
+                            counterText: '',
                             focusedBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xFFFF1717)),
+                              borderSide: BorderSide(
+                                color: Color(0xFFFF1717),
+                              ),
+                            ),
+                            enabledBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFFF1717),
+                              ),
                             ),
                           ),
                         ),
                         const SizedBox(height: 15),
                         TextField(
-                          obscureText: true,
+                          controller: _confirmPasswordController,
+                          obscureText: _obscureConfirmPassword,
                           decoration: InputDecoration(
-                            prefixIcon: const Icon(Icons.lock_outlined),
-                            suffixIcon:
-                                const Icon(Icons.remove_red_eye_rounded),
-                            labelText: "Confirm Password",
-                            labelStyle: GoogleFonts.urbanist(),
-                            border: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xFFFF1717)),
+                            prefixIcon: const Icon(Icons.lock),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _obscureConfirmPassword
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _obscureConfirmPassword =
+                                  !_obscureConfirmPassword;
+                                });
+                              },
                             ),
+                            labelText: "Confirm Password",
+                            labelStyle: GoogleFonts.urbanist(color: Colors.black),
+                            border: const OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color(0xFFFF1717)),
+                            ),
+                            counterText: '',
                             focusedBorder: const OutlineInputBorder(
-                              borderSide: BorderSide(color: Color(0xFFFF1717)),
+                              borderSide: BorderSide(
+                                color: Color(0xFFFF1717),
+                              ),
+                            ),
+                            enabledBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFFF1717),
+                              ),
                             ),
                           ),
                         ),
-                        const SizedBox(height: 20,),
+                        const SizedBox(height: 20),
                         Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: Row(
@@ -152,6 +218,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   color: Colors.black,
                                 ),
                               ),
+                              const SizedBox(width: 2),
                               GestureDetector(
                                 onTap: () {
                                   Navigator.push(
@@ -199,7 +266,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ),
                         ),
-
                       ],
                     ),
                   ),
