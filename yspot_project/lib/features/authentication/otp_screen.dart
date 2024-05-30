@@ -38,7 +38,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     margin: const EdgeInsets.only(
                         left: 20, right: 20, bottom: 20, top: 20),
                     decoration:
-                    BoxDecoration(borderRadius: BorderRadius.circular(15)),
+                        BoxDecoration(borderRadius: BorderRadius.circular(15)),
                     width: 500,
                     height: 300,
                     child: Column(
@@ -64,7 +64,7 @@ class _OtpScreenState extends State<OtpScreen> {
                                   height: 40,
                                   child: TextField(
                                     maxLength:
-                                    1, // Allow only one character input
+                                        1, // Allow only one character input
                                     keyboardType: TextInputType
                                         .number, // Set keyboard type to number
                                     decoration: InputDecoration(
@@ -82,7 +82,8 @@ class _OtpScreenState extends State<OtpScreen> {
                                         borderSide: BorderSide(
                                           color: Color(0xFFFF1717),
                                         ),
-                                      ),),
+                                      ),
+                                    ),
                                   ),
                                 ),
                             ],
@@ -101,10 +102,11 @@ class _OtpScreenState extends State<OtpScreen> {
                           ),
                         ),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
                                 margin:
-                                const EdgeInsets.only(top: 15, left: 30),
+                                    const EdgeInsets.only(top: 15,),
                                 child: Text(
                                   "Don't receive otp code?",
                                   style: GoogleFonts.urbanist(
@@ -159,7 +161,7 @@ class _OtpScreenState extends State<OtpScreen> {
               ),
               Container(
                 width: 550,
-                margin: const EdgeInsets.only(top: 20,left: 20,right: 20),
+                margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
                 child: Text(
                   "Security at your fingertips.Enter to safeguard your bookings",
                   style: GoogleFonts.urbanist(

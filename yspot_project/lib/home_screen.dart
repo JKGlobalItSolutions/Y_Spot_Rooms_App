@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
-import 'hotel_list.dart';
+import 'features/hotels/hotel_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -139,17 +139,17 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 10),
               Container(
                 padding: const EdgeInsets.all(10),
-                height: 300,
-                width: screenWidth * 0.9,
+                height: 280,
+                width: screenWidth * 0.90,
                 decoration: const BoxDecoration(
                   color: Color(0xFFFF1717),
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderRadius: BorderRadius.all(Radius.circular(6)),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     _buildSearchBarList(locationController,
-                        "Where are you going?", Icons.bed_outlined),
+                        "Thiruvannamalai", Icons.location_on),
                     InkWell(
                       onTap: () {
                         _selectDateRange(context);
@@ -179,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const hotellist(),
+                              builder: (context) => const HotelList(),
                             ));
                       },
                       child: Container(
@@ -752,7 +752,7 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.white,
           ),
           borderRadius: BorderRadius.all(
-            Radius.circular(15),
+            Radius.circular(6),
           ),
         ),
       ),

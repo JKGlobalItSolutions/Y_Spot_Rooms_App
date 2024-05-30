@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yspot_project/features/authentication/sign_up_screen.dart';
-
 import '../../home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -74,7 +73,6 @@ class _LoginScreenState extends State<LoginScreen> {
       },
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

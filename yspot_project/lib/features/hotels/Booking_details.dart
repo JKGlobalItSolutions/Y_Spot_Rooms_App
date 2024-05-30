@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
-import 'package:yspot_project/view_cart.dart';
+
+import 'view_cart.dart';
 
 class BookingDetails extends StatefulWidget {
   const BookingDetails({super.key});
