@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../home_screen.dart';
-import 'rooms_details.dart';
+import 'hotel_details.dart';
 
 class HotelList extends StatefulWidget {
   const HotelList({Key? key}) : super(key: key);
@@ -16,8 +15,8 @@ class _HotelListState extends State<HotelList> {
   final String mapUrl = 'https://www.google.co.in/maps/place/Tiruvannamalai,+Tamil+Nadu/@12.2408537,79.0280527,13z/data=!3m1!4b1!4m6!3m5!1s0x3bacc0852cd3d6cd:0x74002b16e5bac856!8m2!3d12.2252841!4d79.0746957!16s%2Fg%2F11bc5bwkxl?entry=ttu';
 
   void _launchMapUrl() async {
-    if (await canLaunch(mapUrl)) {
-      await launch(mapUrl);
+    if (await canLaunchUrl(mapUrl as Uri)) {
+      await launchUrl(mapUrl as Uri);
     } else {
       throw 'Could not launch $mapUrl';
     }
@@ -241,7 +240,7 @@ class _HotelListState extends State<HotelList> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const roomsdetails(),
+              builder: (context) => const HotelDetails(),
             ));
       },
       child: Card(
@@ -271,7 +270,7 @@ class _HotelListState extends State<HotelList> {
                       title,
                       style: const TextStyle(
                         color: Color(0xFFFF1717),
-                        fontWeight: FontWeight.bold,
+                        fontWeight: FontWeight.w600,
                         fontSize: 15,
                       ),
                     ),
@@ -280,8 +279,8 @@ class _HotelListState extends State<HotelList> {
                       children: [
                         Image.asset(
                           "assets/icons/location.png",
-                          height: 20,
-                          width: 20,
+                          height: 13,
+                          width: 13,
                           color: const Color(0xFFFF1717),
                         ),
                         const SizedBox(width: 5),
@@ -298,8 +297,8 @@ class _HotelListState extends State<HotelList> {
                       children: [
                         Image.asset(
                           "assets/icons/check-mark.png",
-                          height: 20,
-                          width: 20,
+                          height: 13,
+                          width: 13,
                           color: const Color(0xFFFF1717),
                         ),
                         const SizedBox(width: 5),
@@ -318,15 +317,15 @@ class _HotelListState extends State<HotelList> {
                       onTap: () {},
                       child: Container(
                         height: 20,
-                        width: 80,
+                        width: 100,
                         color: const Color(0xFFFF1717),
                         alignment: Alignment.center,
                         child: const Text(
                           "See Availability",
                           style: TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 10,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12,
                           ),
                         ),
                       ),
@@ -656,7 +655,6 @@ class _HotelListState extends State<HotelList> {
                           ElevatedButton(
                             onPressed: _seeResults,
                             style: ElevatedButton.styleFrom(
-                              elevation: 4,
                               backgroundColor: const Color(0xFFFF1717),
                               padding:
                                   const EdgeInsets.only(top: 10, bottom: 10),
@@ -684,7 +682,6 @@ class _HotelListState extends State<HotelList> {
                               });
                             },
                             style: ElevatedButton.styleFrom(
-                              elevation: 4,
                               backgroundColor: const Color(0xFFFF1717),
                               padding:
                                   const EdgeInsets.only(top: 10, bottom: 10),
