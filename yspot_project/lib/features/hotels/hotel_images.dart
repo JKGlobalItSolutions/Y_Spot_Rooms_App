@@ -9,7 +9,7 @@ class HotelImages extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFFF1717),
-        title: Text('All Images'),
+        title: const Text('All Images'),
       ),
       body: GridView.builder(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

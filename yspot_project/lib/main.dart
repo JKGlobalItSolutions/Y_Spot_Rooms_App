@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.urbanistTextTheme(Theme.of(context).textTheme),
         useMaterial3: true,
       ),
-      home: const SplashScreen(child: HotelList()),
+      home: const SplashScreen(child: HotelDetails()),
     );
   }
 }
