@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:yspot_project/features/authentication/sign_up_screen.dart';
-import '../../home_screen.dart';
+import '../bottom navbar/home_page.dart';
+import '../bottom navbar/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -178,7 +179,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HomeScreen(),
+                            builder: (context) => const HomePage(),
                           ),
                         );
                       },

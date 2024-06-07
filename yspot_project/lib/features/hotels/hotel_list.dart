@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../home_screen.dart';
+import '../bottom navbar/home_screen.dart';
 import 'hotel_details.dart';
 
 class HotelList extends StatefulWidget {
@@ -246,7 +246,7 @@ class _HotelListState extends State<HotelList> {
       child: Card(
         color: Colors.white,
         elevation: 2,
-        margin: const EdgeInsets.all(6),
+        margin: const EdgeInsets.all(8),
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Row(

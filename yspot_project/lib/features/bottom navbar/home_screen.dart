@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
+import '../hotels/hotel_list.dart';
 
-import 'features/hotels/hotel_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,8 +16,98 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController roomcount = TextEditingController();
   late PickerDateRange _selectedRange;
 
+
   List<String> locations = ["Thiruvannamalai"];
   List<String> filteredLocations = [];
+
+  //
+
+  int _adults = 0;
+  int _children = 0;
+  int _rooms = 0;
+  String _dropdownValue = 'Select Guests';
+
+  void _incrementCount(int type) {
+    setState(() {
+      if (type == 0) {
+        _adults++;
+      } else if (type == 1) {
+        _children++;
+      } else if (type == 2) {
+        _rooms++;
+      }
+    });
+  }
+
+  void _decrementCount(int type) {
+    setState(() {
+      if (type == 0 && _adults > 0) {
+        _adults--;
+      } else if (type == 1 && _children > 0) {
+        _children--;
+      } else if (type == 2 && _rooms > 0) {
+        _rooms--;
+      }
+    });
+  }
+
+  void _updateDropdownValue() {
+    setState(() {
+      _dropdownValue = 'Adults: $_adults, Children: $_children, Rooms: $_rooms';
+    });
+  }
+
+  Widget _buildIncrementDecrementBox(String title, int count, int type) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(title),
+        Row(
+          children: [
+            IconButton(
+              icon: const Icon(Icons.remove,size: 18,),
+              onPressed: () => _decrementCount(type),
+            ),
+            Text('$count'),
+            IconButton(
+              icon: const Icon(Icons.add,size: 18,),
+              onPressed: () => _incrementCount(type),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  void _showGuestSelectorDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Select Guests'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              _buildIncrementDecrementBox('Adults', _adults, 0),
+              _buildIncrementDecrementBox('Children', _children, 1),
+              _buildIncrementDecrementBox('Rooms', _rooms, 2),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                _updateDropdownValue();
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+//Select guest end
 
   @override
   void initState() {
@@ -47,6 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> _selectDateRange(BuildContext context) async {
     PickerDateRange? pickedRange;
+
     await showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -56,9 +147,9 @@ class _HomeScreenState extends State<HomeScreen> {
             height: MediaQuery.of(context).size.height * 0.5,
             child: SfDateRangePicker(
               headerStyle: const DateRangePickerHeaderStyle(
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.transparent,
                   textStyle: TextStyle(fontWeight: FontWeight.bold)),
-              backgroundColor: Colors.white,
+              backgroundColor: Colors.transparent,
               view: DateRangePickerView.month,
               selectionMode: DateRangePickerSelectionMode.range,
               initialSelectedRange: _selectedRange,
@@ -83,6 +174,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: const Text('OK'),
             ),
+
           ],
         );
       },
@@ -172,8 +264,45 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    _buildTextField(
-                        roomcount, "2 adult/0 child(1 room)", Icons.person),
+
+                    //
+
+                    Column(
+                      children: [
+                        InkWell(
+                          onTap: _showGuestSelectorDialog,
+                          child: InputDecorator(
+                            decoration: const InputDecoration(
+                              hintText: 'Select Guests',
+                              hintStyle: TextStyle(color: Colors.black54),
+                              prefixIcon: Icon(
+                                Icons.people,
+                                color: Colors.brown,
+                              ),
+                              fillColor: Colors.white,
+                              filled: true,
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white),
+                                borderRadius: BorderRadius.all(Radius.circular(6)),
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(_dropdownValue),
+                                const Icon(
+                                  Icons.arrow_drop_down,
+                                  color: Colors.brown,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        // Add other widgets here if needed
+                      ],
+                    ),
+
+                    //
                     InkWell(
                       onTap: () {
                         Navigator.push(
@@ -733,31 +862,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-  Widget _buildTextField(
-      TextEditingController controller, String hint, IconData icon) {
-    return TextField(
-      controller: controller,
-      decoration: InputDecoration(
-        hintText: hint,
-        hintStyle: const TextStyle(color: Colors.black54),
-        prefixIcon: Icon(
-          icon,
-          color: Colors.brown,
-        ),
-        fillColor: Colors.white,
-        filled: true,
-        border: const OutlineInputBorder(
-          borderSide: BorderSide(
-            color: Colors.white,
-          ),
-          borderRadius: BorderRadius.all(
-            Radius.circular(6),
-          ),
-        ),
-      ),
-    );
-  }
+  //
 
   Widget _buildRecentSearch() {
     return InkWell(
@@ -900,3 +1005,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+

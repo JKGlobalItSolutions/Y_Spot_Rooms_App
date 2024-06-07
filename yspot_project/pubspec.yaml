@@ -36,7 +36,7 @@ dependencies:
   flutter_screenutil:
   animated_text_kit:
   google_fonts:
-  curved_navigation_bar: ^1.0.3
+  floating_bottom_navigation_bar: ^1.5.2
   syncfusion_flutter_datepicker: ^25.2.4
   intl: any
 

@@ -4,9 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:yspot_project/features/authentication/login_screen.dart';
 import 'package:yspot_project/features/authentication/otp_screen.dart';
 import 'package:yspot_project/features/authentication/sign_up_screen.dart';
+import 'package:yspot_project/features/bottom%20navbar/home_page.dart';
 import 'package:yspot_project/features/hotels/Booking_details.dart';
 import 'package:yspot_project/features/hotels/hotel_list.dart';
-import 'package:yspot_project/home_screen.dart';
+import 'package:yspot_project/features/bottom%20navbar/home_screen.dart';
 import 'package:yspot_project/splash_screen.dart';
 
 import 'features/hotels/hotel_details.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.urbanistTextTheme(Theme.of(context).textTheme),
         useMaterial3: true,
       ),
-      home: const SplashScreen(child: HotelDetails()),
+      home: const SplashScreen(child: HomePage()),
     );
   }
 }

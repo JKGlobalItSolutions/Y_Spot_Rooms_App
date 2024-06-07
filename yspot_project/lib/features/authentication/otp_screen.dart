@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:yspot_project/home_screen.dart';
+import 'package:yspot_project/features/bottom%20navbar/home_screen.dart';
+
+import '../bottom navbar/home_page.dart';
 
 class OtpScreen extends StatefulWidget {
   const OtpScreen({super.key});
@@ -133,7 +135,7 @@ class _OtpScreenState extends State<OtpScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const HomeScreen()));
+                                    builder: (context) => const HomePage()));
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFFF1717),
