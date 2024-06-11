@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../bottom navbar/home_screen.dart';
-import 'hotel_details.dart';
+import '../../bottom navbar/home_screen.dart';
+import '../hotel details/hotel_details.dart';
 
 class HotelList extends StatefulWidget {
   const HotelList({Key? key}) : super(key: key);
@@ -12,7 +12,8 @@ class HotelList extends StatefulWidget {
 }
 
 class _HotelListState extends State<HotelList> {
-  final String mapUrl = 'https://www.google.co.in/maps/place/Tiruvannamalai,+Tamil+Nadu/@12.2408537,79.0280527,13z/data=!3m1!4b1!4m6!3m5!1s0x3bacc0852cd3d6cd:0x74002b16e5bac856!8m2!3d12.2252841!4d79.0746957!16s%2Fg%2F11bc5bwkxl?entry=ttu';
+  final String mapUrl =
+      'https://www.google.co.in/maps/place/Tiruvannamalai,+Tamil+Nadu/@12.2408537,79.0280527,13z/data=!3m1!4b1!4m6!3m5!1s0x3bacc0852cd3d6cd:0x74002b16e5bac856!8m2!3d12.2252841!4d79.0746957!16s%2Fg%2F11bc5bwkxl?entry=ttu';
 
   void _launchMapUrl() async {
     if (await canLaunchUrl(mapUrl as Uri)) {
@@ -133,9 +134,7 @@ class _HotelListState extends State<HotelList> {
                   ),
                   Expanded(
                     child: ListTile(
-                      onTap: 
-                        _launchMapUrl
-                      ,
+                      onTap: _launchMapUrl,
                       leading: Image.asset(
                         "assets/icons/maps-and-flags.png",
                         color: const Color(0xFFFF1717),
@@ -756,9 +755,9 @@ class _HotelListState extends State<HotelList> {
     );
   }
 
-  /* --------->Map Widget<------------ */
+  /* --------->Map Widget Start<------------ */
 
+  /* --------->Map Widget End<------------ */
 
-
-
+/* --------->Firebase Hotel card widget<------------ */
 }

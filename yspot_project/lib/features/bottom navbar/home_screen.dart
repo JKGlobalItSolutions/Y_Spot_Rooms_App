@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
-import '../hotels/hotel_list.dart';
+import '../hotels/hotel list/hotel_list.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -20,13 +20,15 @@ class _HomeScreenState extends State<HomeScreen> {
   List<String> locations = ["Thiruvannamalai"];
   List<String> filteredLocations = [];
 
-  //
+  // Guest selection functionality
 
+// Variables to store guest counts and dropdown value
   int _adults = 0;
   int _children = 0;
   int _rooms = 0;
   String _dropdownValue = 'Select Guests';
 
+// Function to increment guest count based on type (0: adults, 1: children, 2: rooms)
   void _incrementCount(int type) {
     setState(() {
       if (type == 0) {
@@ -39,6 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+// Function to decrement guest count based on type, ensuring count doesn't go negative
   void _decrementCount(int type) {
     setState(() {
       if (type == 0 && _adults > 0) {
@@ -51,27 +54,39 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+// Function to update the dropdown value string with current guest counts
   void _updateDropdownValue() {
     setState(() {
       _dropdownValue = 'Adults: $_adults, Children: $_children, Rooms: $_rooms';
     });
   }
 
-  Widget _buildIncrementDecrementBox(String title, int count, int type) {
+// Widget to build the increment/decrement control for each guest type
+  Widget _buildIncrementDecrementBox(String title, int count, int type, VoidCallback callback) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(title),
         Row(
           children: [
+            // Button to decrement count
             IconButton(
               icon: const Icon(Icons.remove,size: 18,),
-              onPressed: () => _decrementCount(type),
+              onPressed: () {
+                _decrementCount(type);
+                callback(); // Call the callback to update the dialog content
+              },
             ),
-            Text('$count'),
+            const SizedBox(width: 10,),
+            Text('$count'), // Display current count
+            const SizedBox(width: 10,),
+            // Button to increment count
             IconButton(
               icon: const Icon(Icons.add,size: 18,),
-              onPressed: () => _incrementCount(type),
+              onPressed: () {
+                _incrementCount(type);
+                callback(); // Call the callback to update the dialog content
+              },
             ),
           ],
         ),
@@ -79,34 +94,46 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+// Function to show the guest selection dialog
   void _showGuestSelectorDialog() {
     showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog(
-          title: const Text('Select Guests'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _buildIncrementDecrementBox('Adults', _adults, 0),
-              _buildIncrementDecrementBox('Children', _children, 1),
-              _buildIncrementDecrementBox('Rooms', _rooms, 2),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                _updateDropdownValue();
-                Navigator.of(context).pop();
-              },
-              child: const Text('OK'),
-            ),
-          ],
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              title: const Text('Select Guests'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Build increment/decrement controls for each guest type
+                  _buildIncrementDecrementBox('Adults', _adults, 0, () {
+                    setState(() {});
+                  }),
+                  _buildIncrementDecrementBox('Children', _children, 1, () {
+                    setState(() {});
+                  }),
+                  _buildIncrementDecrementBox('Rooms', _rooms, 2, () {
+                    setState(() {});
+                  }),
+                ],
+              ),
+              actions: [
+                // Button to confirm selection
+                TextButton(
+                  onPressed: () {
+                    _updateDropdownValue(); // Update the dropdown value
+                    Navigator.of(context).pop(); // Close the dialog
+                  },
+                  child: const Text('OK'),
+                ),
+              ],
+            );
+          },
         );
       },
     );
   }
-
 //Select guest end
 
   @override

@@ -107,8 +107,9 @@ class _OtpScreenState extends State<OtpScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Container(
-                                margin:
-                                    const EdgeInsets.only(top: 15,),
+                                margin: const EdgeInsets.only(
+                                  top: 15,
+                                ),
                                 child: Text(
                                   "Don't receive otp code?",
                                   style: GoogleFonts.urbanist(
@@ -131,12 +132,7 @@ class _OtpScreenState extends State<OtpScreen> {
                           height: 20,
                         ),
                         ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const HomePage()));
-                          },
+                          onPressed: () {},
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFFF1717),
                             padding: const EdgeInsets.only(top: 10, bottom: 10),

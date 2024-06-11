@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:yspot_project/features/hotels/hotel_images.dart';
+import 'package:yspot_project/features/hotels/hotel%20details/hotel_images.dart';
 
-import 'Booking_details.dart';
+import '../Booking_details.dart';
 
 class HotelDetails extends StatefulWidget {
   const HotelDetails({super.key});
@@ -847,6 +847,22 @@ class _HotelDetailsState extends State<HotelDetails> {
                                     Container(
                                       margin: const EdgeInsets.only(left: 4),
                                       child: const Text("Non-smoking rooms",style: TextStyle(
+                                        fontSize: 15,
+                                      ),),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.only(left: 15),
+                                child: Row(
+                                  children: [
+                                    const Text(".",style: TextStyle(
+                                      fontSize: 15,
+                                    ),),
+                                    Container(
+                                      margin: const EdgeInsets.only(left: 4),
+                                      child: const Text("",style: TextStyle(
                                         fontSize: 15,
                                       ),),
                                     ),
