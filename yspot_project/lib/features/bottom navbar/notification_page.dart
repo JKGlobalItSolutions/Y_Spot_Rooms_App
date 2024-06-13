@@ -84,7 +84,9 @@ class _NotificationPageState extends State<NotificationPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               buildHotelCard(
                 "assets/sample assets/villa.webp",
                 "Lakshmi residensy A/C",
@@ -93,7 +95,9 @@ class _NotificationPageState extends State<NotificationPage> {
                 "₹4,264",
                 "5.2",
               ),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               Container(
                 width: 100,
                 height: 40,
@@ -118,7 +122,9 @@ class _NotificationPageState extends State<NotificationPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 50,),
+              const SizedBox(
+                height: 50,
+              ),
               const Center(
                 child: Text(
                   'No Past Bookings',

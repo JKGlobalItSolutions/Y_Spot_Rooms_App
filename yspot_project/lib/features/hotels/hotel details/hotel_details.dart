@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:yspot_project/features/booking/billing_screen.dart';
+import 'package:yspot_project/features/booking/booking_screen.dart';
 import 'package:yspot_project/features/hotels/hotel%20details/hotel_images.dart';
 
-import '../Booking_details.dart';
 
 class HotelDetails extends StatefulWidget {
   const HotelDetails({super.key});
@@ -30,7 +31,7 @@ class _HotelDetailsState extends State<HotelDetails> {
               Navigator.pop(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const BookingDetails(),
+                  builder: (context) => const BookingScreen(),
                 ),
               );
             },
@@ -70,8 +71,8 @@ class _HotelDetailsState extends State<HotelDetails> {
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.network(
-                        'https://source.unsplash.com/random/800x600/?hotel,view',
+                      child: Image.asset(
+                        "assets/sample assets/park.webp",
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -113,8 +114,8 @@ class _HotelDetailsState extends State<HotelDetails> {
                                   ),
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
-                                    child: Image.network(
-                                      'https://source.unsplash.com/random/400x600/?hotel,view',
+                                    child: Image.asset(
+                                      "assets/sample assets/park.webp",
                                       fit: BoxFit.cover,
                                       width: double.infinity,
                                     ),
@@ -885,7 +886,7 @@ class _HotelDetailsState extends State<HotelDetails> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const BookingDetails(),
+                                builder: (context) => const BillingScreen(),
                               ),
                             );
                           },
@@ -926,7 +927,7 @@ class _HotelDetailsState extends State<HotelDetails> {
 
   //Small image widget
 
-  Widget _buildSmallImage(String url) {
+  Widget _buildSmallImage(String image) {
     return Container(
       height: 90,
       decoration: BoxDecoration(
@@ -934,8 +935,8 @@ class _HotelDetailsState extends State<HotelDetails> {
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
-        child: Image.network(
-          url,
+        child: Image.asset(
+          image,
           fit: BoxFit.cover,
           width: double.infinity,
         ),

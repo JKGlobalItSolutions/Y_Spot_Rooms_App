@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:yspot_project/features/booking/booking_screen.dart';
 
 class BillingScreen extends StatefulWidget {
   const BillingScreen({super.key});
@@ -49,7 +51,7 @@ class _BillingScreenState extends State<BillingScreen> {
                 elevation: 4,
                 color: Colors.white,
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -137,7 +139,9 @@ class _BillingScreenState extends State<BillingScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -230,7 +234,9 @@ class _BillingScreenState extends State<BillingScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 10,),
+                      const SizedBox(
+                        height: 10,
+                      ),
                       const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -242,7 +248,9 @@ class _BillingScreenState extends State<BillingScreen> {
                               color: Color(0xFFFF1717),
                             ),
                           ),
-                          const SizedBox(height: 2,),
+                          SizedBox(
+                            height: 2,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -264,7 +272,9 @@ class _BillingScreenState extends State<BillingScreen> {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 2,),
+                          SizedBox(
+                            height: 2,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -290,7 +300,9 @@ class _BillingScreenState extends State<BillingScreen> {
                             color: Color(0xFFFF1717),
                             thickness: 1,
                           ),
-                          SizedBox(height: 2,),
+                          SizedBox(
+                            height: 2,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -312,7 +324,9 @@ class _BillingScreenState extends State<BillingScreen> {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 2,),
+                          SizedBox(
+                            height: 2,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -338,7 +352,9 @@ class _BillingScreenState extends State<BillingScreen> {
                             color: Color(0xFFFF1717),
                             thickness: 1,
                           ),
-                          const SizedBox(height: 2,),
+                          SizedBox(
+                            height: 2,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -360,14 +376,18 @@ class _BillingScreenState extends State<BillingScreen> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 10,),
+                          SizedBox(
+                            height: 10,
+                          ),
                         ],
                       ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               const Text(
                 "Personal Details",
                 style: TextStyle(
@@ -376,7 +396,9 @@ class _BillingScreenState extends State<BillingScreen> {
                   color: Colors.black,
                 ),
               ),
-              const SizedBox(height: 5,),
+              const SizedBox(
+                height: 5,
+              ),
               const Row(
                 children: [
                   Text(
@@ -397,7 +419,9 @@ class _BillingScreenState extends State<BillingScreen> {
                   ),
                 ],
               ),
-              SizedBox(// Adjust width as needed
+              Container(
+                padding:
+                    const EdgeInsets.only(right: 10), // Adjust width as needed
                 height: 30, // Adjust height as needed
                 child: TextField(
                   decoration: InputDecoration(
@@ -411,15 +435,19 @@ class _BillingScreenState extends State<BillingScreen> {
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Color(0xFFFF1717)),
                     ),
-                    contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0), // Adjust padding here
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 10.0), // Adjust padding here
                   ),
                 ),
               ),
-              const SizedBox(height: 5,),
+              const SizedBox(
+                height: 5,
+              ),
               const Row(
                 children: [
                   Text(
-                    "Full name",
+                    "Email address",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
@@ -436,7 +464,9 @@ class _BillingScreenState extends State<BillingScreen> {
                   ),
                 ],
               ),
-              SizedBox(// Adjust width as needed
+              Container(
+                padding:
+                    const EdgeInsets.only(right: 10), // Adjust width as needed
                 height: 30, // Adjust height as needed
                 child: TextField(
                   decoration: InputDecoration(
@@ -450,15 +480,27 @@ class _BillingScreenState extends State<BillingScreen> {
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Color(0xFFFF1717)),
                     ),
-                    contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0), // Adjust padding here
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 10.0), // Adjust padding here
                   ),
                 ),
               ),
-              const SizedBox(height: 5,),
+              const Text(
+                "The confirmation email is sent to this address.",
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey,
+                ),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
               const Row(
                 children: [
                   Text(
-                    "Full name",
+                    "Address",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
@@ -475,7 +517,9 @@ class _BillingScreenState extends State<BillingScreen> {
                   ),
                 ],
               ),
-              SizedBox(// Adjust width as needed
+              Container(
+                padding:
+                    const EdgeInsets.only(right: 10), // Adjust width as needed
                 height: 30, // Adjust height as needed
                 child: TextField(
                   decoration: InputDecoration(
@@ -489,15 +533,19 @@ class _BillingScreenState extends State<BillingScreen> {
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Color(0xFFFF1717)),
                     ),
-                    contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0), // Adjust padding here
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 10.0), // Adjust padding here
                   ),
                 ),
               ),
-              const SizedBox(height: 5,),
+              const SizedBox(
+                height: 5,
+              ),
               const Row(
                 children: [
                   Text(
-                    "Full name",
+                    "City",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
@@ -514,7 +562,9 @@ class _BillingScreenState extends State<BillingScreen> {
                   ),
                 ],
               ),
-              SizedBox(// Adjust width as needed
+              Container(
+                padding:
+                    const EdgeInsets.only(right: 10), // Adjust width as needed
                 height: 30, // Adjust height as needed
                 child: TextField(
                   decoration: InputDecoration(
@@ -528,15 +578,19 @@ class _BillingScreenState extends State<BillingScreen> {
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Color(0xFFFF1717)),
                     ),
-                    contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0), // Adjust padding here
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 10.0), // Adjust padding here
                   ),
                 ),
               ),
-              const SizedBox(height: 5,),
+              const SizedBox(
+                height: 5,
+              ),
               const Row(
                 children: [
                   Text(
-                    "Full name",
+                    "Pin Code",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
@@ -553,7 +607,9 @@ class _BillingScreenState extends State<BillingScreen> {
                   ),
                 ],
               ),
-              SizedBox(// Adjust width as needed
+              Container(
+                padding:
+                    const EdgeInsets.only(right: 10), // Adjust width as needed
                 height: 30, // Adjust height as needed
                 child: TextField(
                   decoration: InputDecoration(
@@ -567,15 +623,19 @@ class _BillingScreenState extends State<BillingScreen> {
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Color(0xFFFF1717)),
                     ),
-                    contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0), // Adjust padding here
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 10.0), // Adjust padding here
                   ),
                 ),
               ),
-              const SizedBox(height: 5,),
+              const SizedBox(
+                height: 5,
+              ),
               const Row(
                 children: [
                   Text(
-                    "Full name",
+                    "Country/region",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
@@ -592,7 +652,9 @@ class _BillingScreenState extends State<BillingScreen> {
                   ),
                 ],
               ),
-              SizedBox(// Adjust width as needed
+              Container(
+                padding:
+                    const EdgeInsets.only(right: 10), // Adjust width as needed
                 height: 30, // Adjust height as needed
                 child: TextField(
                   decoration: InputDecoration(
@@ -606,15 +668,19 @@ class _BillingScreenState extends State<BillingScreen> {
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Color(0xFFFF1717)),
                     ),
-                    contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0), // Adjust padding here
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 10.0), // Adjust padding here
                   ),
                 ),
               ),
-              const SizedBox(height: 5,),
+              const SizedBox(
+                height: 5,
+              ),
               const Row(
                 children: [
                   Text(
-                    "Full name",
+                    "Mobile number",
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
@@ -631,7 +697,9 @@ class _BillingScreenState extends State<BillingScreen> {
                   ),
                 ],
               ),
-              SizedBox(// Adjust width as needed
+              Container(
+                padding:
+                    const EdgeInsets.only(right: 10), // Adjust width as needed
                 height: 30, // Adjust height as needed
                 child: TextField(
                   decoration: InputDecoration(
@@ -645,10 +713,412 @@ class _BillingScreenState extends State<BillingScreen> {
                     enabledBorder: const OutlineInputBorder(
                       borderSide: BorderSide(color: Color(0xFFFF1717)),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0), // Adjust padding here
                   ),
                 ),
               ),
+              const Text(
+                "So the accommodation can reach you",
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.grey,
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(right: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      "+Add Guest",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFFF1717),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              const Text(
+                "Payment method",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              Card(
+                elevation: 4,
+                color: Colors.white,
+                child: Container(
+                  padding: const EdgeInsets.all(10),
+                  child: Column(
+                    children: [
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const BookingScreen(),
+                            ),
+                          );
+                        },
+                        child: const Row(
+                          children: [
+                            Icon(
+                              Icons.stars_outlined,
+                              size: 40,
+                              color: Color(0xFFFF1717),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: 30,
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Reservation",
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    Icon(
+                                      Icons.chevron_right_sharp,
+                                      size: 25,
+                                      color: Colors.grey,
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  width: 30,
+                                ),
+                                Text(
+                                  "Pay when you check-in",
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w300,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 1,
+                        color: Colors.grey,
+                        indent: 15,
+                        endIndent: 15,
+                      ),
+                      const Row(
+                        children: [
+                          Icon(
+                            Icons.paypal_outlined,
+                            size: 40,
+                            color: Color(0xFFFF1717),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 30,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "UPI options",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Icon(
+                                    Icons.chevron_right_sharp,
+                                    size: 25,
+                                    color: Colors.grey,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 30,
+                              ),
+                              Text(
+                                "Visa,Mastercard,Amex,Rupay and more",
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Divider(
+                        thickness: 1,
+                        color: Colors.grey,
+                        indent: 15,
+                        endIndent: 15,
+                      ),
+                      const Row(
+                        children: [
+                          Icon(
+                            Icons.payment_outlined,
+                            size: 40,
+                            color: Color(0xFFFF1717),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 30,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Credit/Debit/ATM card",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Icon(
+                                    Icons.chevron_right_sharp,
+                                    size: 25,
+                                    color: Colors.grey,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 30,
+                              ),
+                              Text(
+                                "Visa,Mastercard,Amex,Rupay and more",
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Divider(
+                        thickness: 1,
+                        color: Colors.grey,
+                        indent: 15,
+                        endIndent: 15,
+                      ),
+                      const Row(
+                        children: [
+                          Icon(
+                            Icons.account_balance_outlined,
+                            size: 40,
+                            color: Color(0xFFFF1717),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 30,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    "Net Banking",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Icon(
+                                    Icons.chevron_right_sharp,
+                                    size: 25,
+                                    color: Colors.grey,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 30,
+                              ),
+                              Text(
+                                "All Major Banks Available",
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Divider(
+                        thickness: 1,
+                        color: Colors.grey,
+                        indent: 15,
+                        endIndent: 15,
+                      ),
+                      const Row(
+                        children: [
+                          Icon(
+                            Icons.account_balance_wallet_outlined,
+                            size: 40,
+                            color: Color(0xFFFF1717),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 30,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    "Mobile Wallet",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Icon(
+                                    Icons.chevron_right_sharp,
+                                    size: 25,
+                                    color: Colors.grey,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 30,
+                              ),
+                              Text(
+                                "Amazonpay, Mobiwik",
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Divider(
+                        thickness: 1,
+                        color: Colors.grey,
+                        indent: 15,
+                        endIndent: 15,
+                      ),
+                      const Row(
+                        children: [
+                          Icon(
+                            Icons.percent_sharp,
+                            size: 40,
+                            color: Color(0xFFFF1717),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 30,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text(
+                                    "EMI",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  SizedBox(width: 10),
+                                  Icon(
+                                    Icons.chevron_right_sharp,
+                                    size: 25,
+                                    color: Colors.grey,
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                width: 30,
+                              ),
+                              Text(
+                                "Credit/Debit card EMI available",
+                                style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 500),
             ],
           ),
         ),

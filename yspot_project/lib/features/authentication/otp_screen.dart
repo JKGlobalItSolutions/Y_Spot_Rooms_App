@@ -132,7 +132,14 @@ class _OtpScreenState extends State<OtpScreen> {
                           height: 20,
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const HomePage(),
+                              ),
+                            );
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: const Color(0xFFFF1717),
                             padding: const EdgeInsets.only(top: 10, bottom: 10),

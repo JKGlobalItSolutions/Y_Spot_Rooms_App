@@ -6,7 +6,6 @@ import 'package:yspot_project/features/authentication/otp_screen.dart';
 import 'package:yspot_project/features/authentication/sign_up_screen.dart';
 import 'package:yspot_project/features/booking/billing_screen.dart';
 import 'package:yspot_project/features/bottom%20navbar/home_page.dart';
-import 'package:yspot_project/features/hotels/Booking_details.dart';
 import 'package:yspot_project/features/hotels/hotel%20list/hotel_list.dart';
 import 'package:yspot_project/features/bottom%20navbar/home_screen.dart';
 import 'package:yspot_project/firebase_options.dart';
@@ -21,6 +20,7 @@ void main() {
   //Todo: Init Payment Methods
   //Todo: Initialize Firebase
   //Todo: Initialize Authentication
+  //Todo: Init GoogleMap methods
 
   runApp(const MyApp());
 }
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.urbanistTextTheme(Theme.of(context).textTheme),
         useMaterial3: true,
       ),
-      home: const SplashScreen(child: BillingScreen()),
+      home: const SplashScreen(child: LanguageScreen()),
     );
   }
 }

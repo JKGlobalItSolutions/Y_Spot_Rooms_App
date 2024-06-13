@@ -26,7 +26,8 @@ class _LoginScreenState extends State<LoginScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text("Forgot Password:", style: GoogleFonts.urbanist(color: Colors.black,fontSize: 20)),
+          title: Text("Forgot Password:",
+              style: GoogleFonts.urbanist(color: Colors.black, fontSize: 20)),
           content: TextField(
             controller: _emailController,
             decoration: InputDecoration(
@@ -61,10 +62,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     elevation: 4,
                     behavior: SnackBarBehavior.fixed,
                     backgroundColor: Colors.white,
-                    content: Text('Password reset email sent to $email',
-                    style: GoogleFonts.urbanist(color: Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400),),
+                    content: Text(
+                      'Password reset email sent to $email',
+                      style: GoogleFonts.urbanist(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400),
+                    ),
                   ),
                 );
               },
@@ -74,6 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
       },
     );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,8 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         labelText: "Enter Email or Phone number",
                         labelStyle: GoogleFonts.urbanist(color: Colors.black),
                         border: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color(0xFFFF1717)),
+                          borderSide: BorderSide(color: Color(0xFFFF1717)),
                         ),
                         focusedBorder: const OutlineInputBorder(
                           borderSide: BorderSide(
@@ -142,8 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         labelText: "Password",
                         labelStyle: GoogleFonts.urbanist(color: Colors.black),
                         border: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Color(0xFFFF1717)),
+                          borderSide: BorderSide(color: Color(0xFFFF1717)),
                         ),
                         counterText: '',
                         focusedBorder: const OutlineInputBorder(
@@ -265,7 +268,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: Colors.black,
                             ),
                           ),
-                          const SizedBox(width: 2,),
+                          const SizedBox(
+                            width: 2,
+                          ),
                           GestureDetector(
                             onTap: () {
                               Navigator.push(
