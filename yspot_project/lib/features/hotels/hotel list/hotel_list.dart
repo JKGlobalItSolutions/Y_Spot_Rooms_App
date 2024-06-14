@@ -24,6 +24,14 @@ class _HotelListState extends State<HotelList> {
   }
 
   Map<String, bool> checkboxState = {};
+  String placeholderText = "";
+
+  @override
+  void initState() {
+    super.initState();
+    // Set initial placeholder text
+    placeholderText = "${HomeScreen.defaultLocation} / ${HomeScreen.formattedDate}";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,23 +62,24 @@ class _HotelListState extends State<HotelList> {
                       color: Colors.white,
                     ),
                   ),
-                  const Expanded(
+                  Expanded(
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 2),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: "Thiruvannamalai / 21 may - 22 may",
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFF1717)),
-                          ),
-                          counterText: '',
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFFF1717),
+                      child:  Container(
+                        padding: EdgeInsets.symmetric(horizontal: 2),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                          border: Border.all(color: Color(0xFFFF1717)),
+                          color: Colors.white,
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            placeholderText,
+                            style: TextStyle(
+                              color: Colors.black,
                             ),
                           ),
-                          filled: true,
-                          fillColor: Colors.white,
                         ),
                       ),
                     ),

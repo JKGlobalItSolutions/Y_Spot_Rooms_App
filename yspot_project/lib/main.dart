@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.urbanistTextTheme(Theme.of(context).textTheme),
         useMaterial3: true,
       ),
-      home: const SplashScreen(child: LanguageScreen()),
+      home: const SplashScreen(child: HomePage()),
     );
   }
 }

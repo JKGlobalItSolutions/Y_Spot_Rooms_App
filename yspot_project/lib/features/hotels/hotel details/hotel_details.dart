@@ -86,12 +86,12 @@ class _HotelDetailsState extends State<HotelDetails> {
                       children: [
                         Expanded(
                           child: _buildSmallImage(
-                              'https://source.unsplash.com/random/700x600/?hotel,view'),
+                              "assets/sample assets/hotel2.webp"),
                         ),
                         const SizedBox(width: 10),
                         Expanded(
                           child: _buildSmallImage(
-                              'https://source.unsplash.com/random/500x600/?hotel,view'),
+                              "assets/sample assets/hotel2.webp"),
                         ),
                         const SizedBox(width: 10),
                         Expanded(
@@ -847,7 +847,7 @@ class _HotelDetailsState extends State<HotelDetails> {
                                     const Icon(Icons.assistant_direction_outlined,),
                                     Container(
                                       margin: const EdgeInsets.only(left: 4),
-                                      child: const Text("Non-smoking rooms",style: TextStyle(
+                                      child: const Text("Iconic Places",style: TextStyle(
                                         fontSize: 15,
                                       ),),
                                     ),
@@ -863,16 +863,120 @@ class _HotelDetailsState extends State<HotelDetails> {
                                     ),),
                                     Container(
                                       margin: const EdgeInsets.only(left: 4),
-                                      child: const Text("",style: TextStyle(
+                                      child: const Text("Arunachaleshwara Temple",style: TextStyle(
                                         fontSize: 15,
                                       ),),
                                     ),
                                   ],
                                 ),
                               ),
+                              Container(
+                                margin: const EdgeInsets.only(left: 21),
+                                child: const Text("2.0 km",style: TextStyle(
+                                  fontSize: 12,
+                                ),),
+                              ),
+                              Container(
+                                width: 90,
+                                padding:const EdgeInsets.all(3),
+                                decoration:BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                margin: const EdgeInsets.only(left: 21),
+                                child: const Text("Spiritual Sites",style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                ),),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.only(left: 15),
+                                child: Row(
+                                  children: [
+                                    const Text(".",style: TextStyle(
+                                      fontSize: 15,
+                                    ),),
+                                    Container(
+                                      margin: const EdgeInsets.only(left: 4),
+                                      child: const Text("Ramana Ashram",style: TextStyle(
+                                        fontSize: 15,
+                                      ),),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.only(left: 21),
+                                child: const Text("2.5 km",style: TextStyle(
+                                  fontSize: 12,
+                                ),),
+                              ),
+                              Container(
+                                width: 90,
+                                padding:const EdgeInsets.all(3),
+                                decoration:BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                margin: const EdgeInsets.only(left: 21),
+                                child: const Text("Spiritual Sites",style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                ),),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.only(left: 15,top: 10),
+                                child: Row(
+                                  children: [
+                                    const Icon(Icons.emoji_transportation_sharp,),
+                                    Container(
+                                      margin: const EdgeInsets.only(left: 4),
+                                      child: const Text("Transportation",style: TextStyle(
+                                        fontSize: 15,
+                                      ),),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.only(left: 15),
+                                child: Row(
+                                  children: [
+                                    const Text(".",style: TextStyle(
+                                      fontSize: 15,
+                                    ),),
+                                    Container(
+                                      margin: const EdgeInsets.only(left: 4),
+                                      child: const Text("Thiruvannamalai railway station",style: TextStyle(
+                                        fontSize: 15,
+                                      ),),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                margin: const EdgeInsets.only(left: 21),
+                                child: const Text("1.7 km",style: TextStyle(
+                                  fontSize: 12,
+                                ),),
+                              ),
+                              Container(
+                                width: 60,
+                                padding:const EdgeInsets.all(3),
+                                decoration:BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                                margin: const EdgeInsets.only(left: 21),
+                                child: const Text("Railway",style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12,
+                                ),),
+                              ),
+
                             ],
                           ),
-                          const SizedBox(height: 5000,)// Add other content here if needed
+                          const SizedBox(height: 150,)// Add other content here if needed
                         ],
                       ),
                     ),
