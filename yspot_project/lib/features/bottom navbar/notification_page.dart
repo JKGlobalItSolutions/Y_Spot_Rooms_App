@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'home_page.dart';
@@ -12,126 +13,128 @@ class NotificationPage extends StatefulWidget {
 class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(130.0),
-          child: AppBar(
-            leading: IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-                size: 35,
-              ),
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const HomePage(),
-                    ));
-              },
-            ),
-            flexibleSpace: const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: 20),
-                Icon(
-                  Icons.notifications,
-                  size: 50,
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(130.0),
+            child: AppBar(
+              leading: IconButton(
+                icon: const Icon(
+                  Icons.arrow_back,
                   color: Colors.white,
+                  size: 35,
                 ),
-                Text(
-                  "Wishlist",
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
+                onPressed: () {},
+              ),
+              flexibleSpace: const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: 20),
+                  Icon(
+                    Icons.notifications,
+                    size: 50,
                     color: Colors.white,
+                  ),
+                  Text(
+                    "Wishlist",
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              backgroundColor: const Color(0xFFFF1717),
+              centerTitle: true,
+            ),
+          ),
+          body: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  width: 100,
+                  height: 40,
+                  margin: const EdgeInsets.only(left: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.red.shade100,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: const Color(0xFFFF1717),
+                      width: 2.0,
+                    ),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Active',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                buildHotelCard(
+                  "assets/sample assets/villa.webp",
+                  "Lakshmi residensy A/C",
+                  "Indra Nagar,Rameshwaram Post 1.5km drive to Arunachaleshwara temple",
+                  "24-Room Service",
+                  "₹4,264",
+                  "5.2",
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: 100,
+                  height: 40,
+                  margin: const EdgeInsets.only(left: 5),
+                  decoration: BoxDecoration(
+                    color: Colors.red.shade100,
+                    shape: BoxShape.rectangle,
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: const Color(0xFFFF1717),
+                      width: 2.0,
+                    ),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Past',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                const Center(
+                  child: Text(
+                    'No Past Bookings',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                    ),
                   ),
                 ),
               ],
             ),
-            backgroundColor: const Color(0xFFFF1717),
-            centerTitle: true,
-          ),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                width: 100,
-                height: 40,
-                margin: const EdgeInsets.only(left: 5),
-                decoration: BoxDecoration(
-                  color: Colors.red.shade100,
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(
-                    color: const Color(0xFFFF1717),
-                    width: 2.0,
-                  ),
-                ),
-                child: const Center(
-                  child: Text(
-                    'Active',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10,),
-              buildHotelCard(
-                "assets/sample assets/villa.webp",
-                "Lakshmi residensy A/C",
-                "Indra Nagar,Rameshwaram Post 1.5km drive to Arunachaleshwara temple",
-                "24-Room Service",
-                "₹4,264",
-                "5.2",
-              ),
-              const SizedBox(height: 10,),
-              Container(
-                width: 100,
-                height: 40,
-                margin: const EdgeInsets.only(left: 5),
-                decoration: BoxDecoration(
-                  color: Colors.red.shade100,
-                  shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(
-                    color: const Color(0xFFFF1717),
-                    width: 2.0,
-                  ),
-                ),
-                child: const Center(
-                  child: Text(
-                    'Past',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50,),
-              const Center(
-                child: Text(
-                  'No Past Bookings',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 18,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ));
+          )),
+    );
   }
 
   Widget buildHotelCard(String imagePath, String title, String location,

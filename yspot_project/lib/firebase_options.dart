@@ -50,19 +50,24 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCys7kIO8xvPgL-lFZxSDCdd1jvbeJ-bq0',
-    appId: '1:655921989667:android:b73f9b0af2430c06b2c996',
-    messagingSenderId: '655921989667',
-    projectId: 'yspot-79000',
-    storageBucket: 'yspot-79000.appspot.com',
+    apiKey: 'AIzaSyDqmnjokk7Q-zKcmq7FWd7MJgHnhS_HHXQ',
+    appId: '1:783996806068:android:7e91cf60683ca8d558c8e1',
+    messagingSenderId: '783996806068',
+    projectId: 'y-spot-e84ca',
+    databaseURL: 'https://y-spot-e84ca-default-rtdb.firebaseio.com',
+    storageBucket: 'y-spot-e84ca.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDMcKQ_wFqgDCAfz-vLalpOb_aJhL4ejD8',
-    appId: '1:655921989667:ios:4966b608669b7e8bb2c996',
-    messagingSenderId: '655921989667',
-    projectId: 'yspot-79000',
-    storageBucket: 'yspot-79000.appspot.com',
-    iosBundleId: 'com.example.yspotProject',
+    apiKey: 'AIzaSyAZc5yFEAwQEC5RtR2go_S-hylMlCb27D0',
+    appId: '1:783996806068:ios:74084a14328dd6f558c8e1',
+    messagingSenderId: '783996806068',
+    projectId: 'y-spot-e84ca',
+    databaseURL: 'https://y-spot-e84ca-default-rtdb.firebaseio.com',
+    storageBucket: 'y-spot-e84ca.appspot.com',
+    androidClientId: '783996806068-11kfpdp5it14vn4sj79njqb3v8idbc67.apps.googleusercontent.com',
+    iosClientId: '783996806068-6emitf3cptd4e39v7pskv60nm5dvdaki.apps.googleusercontent.com',
+    iosBundleId: 'com.example.adminyspot',
   );
+
 }

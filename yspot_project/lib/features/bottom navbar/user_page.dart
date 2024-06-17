@@ -18,14 +18,7 @@ class _UserPageState extends State<UserPage> {
         child: AppBar(
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white, size: 35),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const HomePage(),
-                ),
-              );
-            },
+            onPressed: () {},
           ),
           flexibleSpace: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -65,21 +58,52 @@ class _UserPageState extends State<UserPage> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  IconTextRow(icon: Icons.manage_accounts_outlined, text: "Manage your account", onTap: () {}),
-                  IconTextRow(icon: Icons.star_outline_outlined, text: "Reviews", onTap: () {}),
-                  IconTextRow(icon: Icons.question_mark_outlined, text: "Questions to properties", onTap: () {}),
-                  IconTextRow(icon: Icons.account_balance_wallet_outlined, text: "Rewards & Wallet", onTap: () {}),
-                  IconTextRow(icon: Icons.cases_outlined, text: "My Trips", onTap: () {}),
-                  IconTextRow(icon: Icons.favorite_outline_outlined, text: "Wishlist", onTap: () {}),
+                  IconTextRow(
+                      icon: Icons.manage_accounts_outlined,
+                      text: "Manage your account",
+                      onTap: () {}),
+                  IconTextRow(
+                      icon: Icons.star_outline_outlined,
+                      text: "Reviews",
+                      onTap: () {}),
+                  IconTextRow(
+                      icon: Icons.question_mark_outlined,
+                      text: "Questions to properties",
+                      onTap: () {}),
+                  IconTextRow(
+                      icon: Icons.account_balance_wallet_outlined,
+                      text: "Rewards & Wallet",
+                      onTap: () {}),
+                  IconTextRow(
+                      icon: Icons.cases_outlined,
+                      text: "My Trips",
+                      onTap: () {}),
+                  IconTextRow(
+                      icon: Icons.favorite_outline_outlined,
+                      text: "Wishlist",
+                      onTap: () {}),
                   const Divider(
                     color: Colors.grey,
                     thickness: 1,
                   ),
-                  IconTextRow(icon: Icons.local_activity_outlined, text: "My cash", onTap: () {}),
-                  IconTextRow(icon: Icons.card_giftcard_outlined, text: "My Gift Cards", onTap: () {}),
-                  IconTextRow(icon: Icons.credit_card, text: "Saved Cards", onTap: () {}),
-                  IconTextRow(icon: Icons.settings_outlined, text: "Settings", onTap: () {}),
-                  IconTextRow(icon: Icons.exit_to_app, text: "Logout", onTap: () {}),
+                  IconTextRow(
+                      icon: Icons.local_activity_outlined,
+                      text: "My cash",
+                      onTap: () {}),
+                  IconTextRow(
+                      icon: Icons.card_giftcard_outlined,
+                      text: "My Gift Cards",
+                      onTap: () {}),
+                  IconTextRow(
+                      icon: Icons.credit_card,
+                      text: "Saved Cards",
+                      onTap: () {}),
+                  IconTextRow(
+                      icon: Icons.settings_outlined,
+                      text: "Settings",
+                      onTap: () {}),
+                  IconTextRow(
+                      icon: Icons.exit_to_app, text: "Logout", onTap: () {}),
                 ],
               ),
             ),
@@ -111,9 +135,10 @@ class IconTextRow extends StatelessWidget {
         child: Row(
           children: [
             Icon(icon, color: Colors.black),
-            const SizedBox(width: 10,),
+            const SizedBox(
+              width: 10,
+            ),
             Text(text, style: const TextStyle(fontSize: 20)),
-
           ],
         ),
       ),

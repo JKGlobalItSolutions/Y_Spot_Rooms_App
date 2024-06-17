@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yspot_project/features/bottom%20navbar/home_page.dart';
 import 'package:yspot_project/features/bottom%20navbar/home_screen.dart';
@@ -20,14 +21,12 @@ class _FavouritePageState extends State<FavouritePage> {
         preferredSize: const Size.fromHeight(130.0),
         child: AppBar(
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back,color: Colors.white,size: 35,),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ));
-            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+              size: 35,
+            ),
+            onPressed: () {},
           ),
           flexibleSpace: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -79,7 +78,6 @@ class _FavouritePageState extends State<FavouritePage> {
             "₹4,264",
             "5.2",
           ),
-
         ],
       ),
     );
@@ -92,7 +90,9 @@ class _FavouritePageState extends State<FavouritePage> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const HotelDetails(),
+              builder: (context) => const HotelDetails(
+                hotelId: '',
+              ),
             ));
       },
       child: Card(

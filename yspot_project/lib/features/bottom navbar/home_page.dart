@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:yspot_project/features/bottom%20navbar/user_page.dart';
@@ -6,7 +7,7 @@ import 'Favourite_page.dart';
 import 'Notification_page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key, required User user}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();

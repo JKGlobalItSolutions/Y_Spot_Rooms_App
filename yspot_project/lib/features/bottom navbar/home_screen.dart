@@ -3,7 +3,6 @@ import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import '../hotels/hotel_list.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -16,11 +15,8 @@ class _HomeScreenState extends State<HomeScreen> {
   TextEditingController roomcount = TextEditingController();
   late PickerDateRange _selectedRange;
 
-
   List<String> locations = ["Thiruvannamalai"];
   List<String> filteredLocations = [];
-
-  //
 
   int _adults = 0;
   int _children = 0;
@@ -65,12 +61,18 @@ class _HomeScreenState extends State<HomeScreen> {
         Row(
           children: [
             IconButton(
-              icon: const Icon(Icons.remove,size: 18,),
+              icon: const Icon(
+                Icons.remove,
+                size: 18,
+              ),
               onPressed: () => _decrementCount(type),
             ),
             Text('$count'),
             IconButton(
-              icon: const Icon(Icons.add,size: 18,),
+              icon: const Icon(
+                Icons.add,
+                size: 18,
+              ),
               onPressed: () => _incrementCount(type),
             ),
           ],
@@ -174,7 +176,6 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               child: const Text('OK'),
             ),
-
           ],
         );
       },
@@ -231,7 +232,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 10),
               Container(
                 padding: const EdgeInsets.all(10),
-                height: 280,
+                height: 300,
                 width: screenWidth * 0.90,
                 decoration: const BoxDecoration(
                   color: Color(0xFFFF1717),
@@ -240,8 +241,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    _buildSearchBarList(locationController,
-                        "Thiruvannamalai", Icons.location_on),
+                    _buildSearchBarList(locationController, "Thiruvannamalai",
+                        Icons.location_on),
                     InkWell(
                       onTap: () {
                         _selectDateRange(context);
@@ -283,7 +284,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               filled: true,
                               border: OutlineInputBorder(
                                 borderSide: BorderSide(color: Colors.white),
-                                borderRadius: BorderRadius.all(Radius.circular(6)),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(6)),
                               ),
                             ),
                             child: Row(
@@ -383,18 +385,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Stack(children: [
-                        ClipRRect(
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(5)),
-                          child: Image.asset(
-                            "assets/sample assets/kodaikanal.jpg",
-                            fit: BoxFit.fill,
-                            height: 100,
-                            width: 180,
+                      Stack(
+                        children: [
+                          ClipRRect(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(5)),
+                            child: Image.asset(
+                              "assets/sample assets/kodaikanal.jpg",
+                              fit: BoxFit.fill,
+                              height: 100,
+                              width: 180,
+                            ),
                           ),
-                        ),
-                        Align(
+                          Align(
                             alignment: Alignment.topLeft,
                             child: Container(
                               margin: const EdgeInsets.all(8),
@@ -405,8 +408,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                            ),)
-                      ],),
+                            ),
+                          )
+                        ],
+                      ),
                       const SizedBox(
                         width: 5,
                       ),
@@ -1005,4 +1010,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-

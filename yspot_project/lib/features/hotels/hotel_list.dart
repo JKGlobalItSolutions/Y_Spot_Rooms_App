@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -12,7 +13,8 @@ class HotelList extends StatefulWidget {
 }
 
 class _HotelListState extends State<HotelList> {
-  final String mapUrl = 'https://www.google.co.in/maps/place/Tiruvannamalai,+Tamil+Nadu/@12.2408537,79.0280527,13z/data=!3m1!4b1!4m6!3m5!1s0x3bacc0852cd3d6cd:0x74002b16e5bac856!8m2!3d12.2252841!4d79.0746957!16s%2Fg%2F11bc5bwkxl?entry=ttu';
+  final String mapUrl =
+      'https://www.google.co.in/maps/place/Tiruvannamalai,+Tamil+Nadu/@12.2408537,79.0280527,13z/data=!3m1!4b1!4m6!3m5!1s0x3bacc0852cd3d6cd:0x74002b16e5bac856!8m2!3d12.2252841!4d79.0746957!16s%2Fg%2F11bc5bwkxl?entry=ttu';
 
   void _launchMapUrl() async {
     if (await canLaunchUrl(mapUrl as Uri)) {
@@ -27,6 +29,7 @@ class _HotelListState extends State<HotelList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -133,9 +136,7 @@ class _HotelListState extends State<HotelList> {
                   ),
                   Expanded(
                     child: ListTile(
-                      onTap: 
-                        _launchMapUrl
-                      ,
+                      onTap: _launchMapUrl,
                       leading: Image.asset(
                         "assets/icons/maps-and-flags.png",
                         color: const Color(0xFFFF1717),
@@ -156,73 +157,22 @@ class _HotelListState extends State<HotelList> {
               ),
             ),
             Expanded(
-              child: ListView(
-                children: [
-                  buildHotelCard(
-                    "assets/sample assets/ooty.jpg",
-                    "MPS Saai Residency",
-                    "Chengam Road, Ramana nagar 2.0km drive to arunachaleshwara temple",
-                    "24-Room Service",
-                    "₹2,131",
-                    "4.2",
-                  ),
-                  buildHotelCard(
-                    "assets/sample assets/apartments.webp",
-                    "Ramana Towers",
-                    "Opp to Ramana ashram 15km drive to Arunachaleshwara temple",
-                    "24-Room Service",
-                    "₹4,141",
-                    "7.2",
-                  ),
-                  buildHotelCard(
-                    "assets/sample assets/hotel2.webp",
-                    "Arunachala Houses",
-                    "Kozhipannai road ,Athiyandal village 1.0km drive to arunachaleshwara temple",
-                    "24-Room Service",
-                    "₹1,266",
-                    "5.8",
-                  ),
-                  buildHotelCard(
-                    "assets/sample assets/park.webp",
-                    "Ponmozhi residensy",
-                    "Vengikal road, 1.5km drive to Arunachaleshwara temple",
-                    "24-Room Service",
-                    "₹2,414",
-                    "8.6",
-                  ),
-                  buildHotelCard(
-                    "assets/sample assets/hotel1.jpg",
-                    "Royal mini Hall",
-                    "36 Kosamada Street, 1650m drive Arunachaleshwara temple",
-                    "24-Room Service",
-                    "₹5,834",
-                    "3.1",
-                  ),
-                  buildHotelCard(
-                    "assets/sample assets/cabins.jpeg",
-                    "Vijay Balaji A/C",
-                    "Kanji road,Girivalam pathai 1.5km drive to Arunachaleshwara temple",
-                    "24-Room Service",
-                    "₹3,264",
-                    "9.4",
-                  ),
-                  buildHotelCard(
-                    "assets/sample assets/resort.webp",
-                    "Lakshmi residensy A/C",
-                    "Indra Nagar,Rameshwaram Post 1.5km drive to Arunachaleshwara temple",
-                    "24-Room Service",
-                    "₹2,500",
-                    "5.6",
-                  ),
-                  buildHotelCard(
-                    "assets/sample assets/villa.webp",
-                    "Lakshmi residensy A/C",
-                    "Indra Nagar,Rameshwaram Post 1.5km drive to Arunachaleshwara temple",
-                    "24-Room Service",
-                    "₹4,264",
-                    "5.2",
-                  ),
-                ],
+              child: StreamBuilder(
+                stream:
+                    FirebaseFirestore.instance.collection('Hotels').snapshots(),
+                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (!snapshot.hasData) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+
+                  return ListView.builder(
+                    itemCount: snapshot.data?.docs.length,
+                    itemBuilder: (context, index) {
+                      return buildHotelCard(snapshot.data?.docs[index]
+                          as DocumentSnapshot<Object?>);
+                    },
+                  );
+                },
               ),
             ),
           ],
@@ -233,15 +183,46 @@ class _HotelListState extends State<HotelList> {
 
   /* --------->Hotel Card Widget<------------ */
 
-  Widget buildHotelCard(String imagePath, String title, String location,
-      String service, String price, String rating) {
+  Widget buildHotelCard(DocumentSnapshot hotelSnapshot) {
+    if (!hotelSnapshot.exists) {
+      // Handle the case where the document snapshot doesn't exist
+      return SizedBox(); // Or any other fallback widget or null if appropriate
+    }
+    Map<String, dynamic>? hotelData =
+        hotelSnapshot.data() as Map<String, dynamic>?;
+
+    if (hotelData == null) {
+      // Handle the case where hotelData is null
+      return SizedBox(); // Or any other fallback widget or null if appropriate
+    }
+    String hotelId = hotelSnapshot.id;
+    String roomId = hotelData['roomId'] ?? '';
+    double ratings = hotelData.containsKey('Ratings')
+        ? hotelData['Ratings']?.toDouble() ?? 0.0
+        : 0.0;
+
+    // Get the first image from the Property Images list or string
+    String firstImageUrl = '';
+    if (hotelData['Property Images'] is List) {
+      List<dynamic> propertyImages = hotelData['Property Images'];
+      firstImageUrl = propertyImages.isNotEmpty ? propertyImages[0] : '';
+    } else if (hotelData['Property Images'] is String) {
+      firstImageUrl = hotelData['Property Images'];
+    }
+
     return InkWell(
       onTap: () {
+        print("hotelId: $hotelId");
+        print("roomId: $roomId");
+
         Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const HotelDetails(),
-            ));
+          context,
+          MaterialPageRoute(
+            builder: (context) => HotelDetails(
+              hotelId: hotelId,
+            ),
+          ),
+        );
       },
       child: Card(
         color: Colors.white,
@@ -254,8 +235,8 @@ class _HotelListState extends State<HotelList> {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(6),
-                child: Image.asset(
-                  imagePath,
+                child: Image.network(
+                  firstImageUrl,
                   height: 100,
                   width: 100,
                   fit: BoxFit.cover,
@@ -267,7 +248,7 @@ class _HotelListState extends State<HotelList> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      title,
+                      hotelData['Hotel Name'] ?? '',
                       style: const TextStyle(
                         color: Color(0xFFFF1717),
                         fontWeight: FontWeight.w600,
@@ -279,14 +260,14 @@ class _HotelListState extends State<HotelList> {
                       children: [
                         Image.asset(
                           "assets/icons/location.png",
-                          height: 13,
-                          width: 13,
+                          height: 15,
+                          width: 15,
                           color: const Color(0xFFFF1717),
                         ),
                         const SizedBox(width: 5),
                         Expanded(
                           child: Text(
-                            location,
+                            hotelData['Hotel Address'] ?? '',
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -297,21 +278,32 @@ class _HotelListState extends State<HotelList> {
                       children: [
                         Image.asset(
                           "assets/icons/check-mark.png",
-                          height: 13,
-                          width: 13,
+                          height: 15,
+                          width: 15,
                           color: const Color(0xFFFF1717),
                         ),
                         const SizedBox(width: 5),
                         Expanded(
                           child: Text(
-                            service,
+                            hotelData['Accommodation Facilities'] ?? '',
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ],
                     ),
                     const SizedBox(height: 10),
-                    Text(price),
+                    Row(
+                      children: [
+                        Image.asset(
+                          "assets/icons/rupee.png",
+                          height: 18,
+                          width: 18,
+                          color: const Color(0xFFFF1717),
+                        ),
+                        const SizedBox(width: 5),
+                        Text(hotelData['Room Price'] ?? ''),
+                      ],
+                    ),
                     const SizedBox(height: 10),
                     InkWell(
                       onTap: () {},
@@ -350,7 +342,7 @@ class _HotelListState extends State<HotelList> {
                     ),
                     alignment: Alignment.center,
                     child: Text(
-                      rating,
+                      ratings.toStringAsFixed(1),
                       style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -755,10 +747,5 @@ class _HotelListState extends State<HotelList> {
       }).toList(),
     );
   }
-
   /* --------->Map Widget<------------ */
-
-
-
-
 }
