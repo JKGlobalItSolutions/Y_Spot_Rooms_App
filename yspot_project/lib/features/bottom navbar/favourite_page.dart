@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:yspot_project/features/bottom%20navbar/home_page.dart';
 import 'package:yspot_project/features/bottom%20navbar/home_screen.dart';
 
-import '../hotels/hotel_details.dart';
+import '../hotels/hotel details/hotel_details.dart';
 
 class FavouritePage extends StatefulWidget {
   const FavouritePage({super.key});
