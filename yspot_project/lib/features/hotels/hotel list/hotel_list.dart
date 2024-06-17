@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../bottom navbar/home_screen.dart';
-import 'hotel_details.dart';
+import '../../bottom navbar/home_screen.dart';
+import '../hotel details/hotel_details.dart';
 
 class HotelList extends StatefulWidget {
   const HotelList({Key? key}) : super(key: key);
