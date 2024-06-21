@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class HotelImages extends StatelessWidget {
   final String hotelId; // Add this to take the selected hotel's ID
 
-  const HotelImages({super.key, required this.hotelId});
+  const HotelImages(
+      {super.key, required this.hotelId, required List<String> imageUrls});
 
   Future<List<String>> _fetchImages() async {
     // Check if hotelId is non-empty

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -6,7 +7,8 @@ import '../../bottom navbar/home_screen.dart';
 import '../hotel details/hotel_details.dart';
 
 class HotelList extends StatefulWidget {
-  const HotelList({Key? key}) : super(key: key);
+  final User userId;
+  const HotelList({Key? key, required this.userId}) : super(key: key);
 
   @override
   State<HotelList> createState() => _HotelListState();
@@ -25,6 +27,15 @@ class _HotelListState extends State<HotelList> {
   }
 
   Map<String, bool> checkboxState = {};
+  String placeholderText = "";
+
+  @override
+  void initState() {
+    super.initState();
+    // Set initial placeholder text
+    placeholderText =
+        "${HomeScreen.defaultLocation} / ${HomeScreen.formattedDate}";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +57,9 @@ class _HotelListState extends State<HotelList> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return const HomeScreen();
+                            return HomeScreen(
+                              userId: widget.userId,
+                            );
                           },
                         ),
                       );
@@ -56,23 +69,25 @@ class _HotelListState extends State<HotelList> {
                       color: Colors.white,
                     ),
                   ),
-                  const Expanded(
+                  Expanded(
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 2),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: "Thiruvannamalai / 21 may - 22 may",
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFFFF1717)),
-                          ),
-                          counterText: '',
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFFF1717),
+                      child: Container(
+                        height: 45,
+                        padding: const EdgeInsets.symmetric(horizontal: 2),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(6),
+                          border: Border.all(color: const Color(0xFFFF1717)),
+                          color: Colors.white,
+                        ),
+                        child: Center(
+                          child: Text(
+                            placeholderText,
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
                             ),
                           ),
-                          filled: true,
-                          fillColor: Colors.white,
                         ),
                       ),
                     ),
@@ -185,15 +200,13 @@ class _HotelListState extends State<HotelList> {
 
   Widget buildHotelCard(DocumentSnapshot hotelSnapshot) {
     if (!hotelSnapshot.exists) {
-      // Handle the case where the document snapshot doesn't exist
-      return SizedBox(); // Or any other fallback widget or null if appropriate
+      return SizedBox();
     }
     Map<String, dynamic>? hotelData =
         hotelSnapshot.data() as Map<String, dynamic>?;
 
     if (hotelData == null) {
-      // Handle the case where hotelData is null
-      return SizedBox(); // Or any other fallback widget or null if appropriate
+      return SizedBox();
     }
     String hotelId = hotelSnapshot.id;
     String roomId = hotelData['roomId'] ?? '';
@@ -220,6 +233,8 @@ class _HotelListState extends State<HotelList> {
           MaterialPageRoute(
             builder: (context) => HotelDetails(
               hotelId: hotelId,
+              userId: widget.userId,
+              roomId: roomId,
             ),
           ),
         );

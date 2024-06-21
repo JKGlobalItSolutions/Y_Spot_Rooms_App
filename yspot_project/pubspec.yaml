@@ -60,7 +60,7 @@ dependencies:
   maps_launcher: ^2.2.1
   geolocator:
 
-
+  percent_indicator: ^4.2.3
 
 
   cupertino_icons: ^1.0.2

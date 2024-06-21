@@ -1,9 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:yspot_project/features/bottom%20navbar/home_page.dart';
-import 'package:yspot_project/features/bottom%20navbar/home_screen.dart';
-
-import '../hotels/hotel details/hotel_details.dart';
 
 class FavouritePage extends StatefulWidget {
   const FavouritePage({super.key});
@@ -62,22 +57,6 @@ class _FavouritePageState extends State<FavouritePage> {
             "₹3,264",
             "9.4",
           ),
-          buildHotelCard(
-            "assets/sample assets/resort.webp",
-            "Lakshmi residensy A/C",
-            "Indra Nagar,Rameshwaram Post 1.5km drive to Arunachaleshwara temple",
-            "24-Room Service",
-            "₹2,500",
-            "5.6",
-          ),
-          buildHotelCard(
-            "assets/sample assets/villa.webp",
-            "Lakshmi residensy A/C",
-            "Indra Nagar,Rameshwaram Post 1.5km drive to Arunachaleshwara temple",
-            "24-Room Service",
-            "₹4,264",
-            "5.2",
-          ),
         ],
       ),
     );
@@ -86,15 +65,7 @@ class _FavouritePageState extends State<FavouritePage> {
   Widget buildHotelCard(String imagePath, String title, String location,
       String service, String price, String rating) {
     return InkWell(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const HotelDetails(
-                hotelId: '',
-              ),
-            ));
-      },
+      onTap: () {},
       child: Card(
         color: Colors.white,
         elevation: 2,

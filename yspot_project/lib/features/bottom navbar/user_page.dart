@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'home_page.dart';
+import 'package:yspot_project/features/authentication/login_screen.dart';
+import 'package:yspot_project/features/bottom%20navbar/my_bookings.dart';
 
 class UserPage extends StatefulWidget {
   const UserPage({Key? key}) : super(key: key);
@@ -43,74 +45,96 @@ class _UserPageState extends State<UserPage> {
           centerTitle: true,
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Card(
-            elevation: 4.0,
-            color: Colors.white,
-            shadowColor: Colors.black, // Shadow color
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16.0),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  IconTextRow(
-                      icon: Icons.manage_accounts_outlined,
-                      text: "Manage your account",
-                      onTap: () {}),
-                  IconTextRow(
-                      icon: Icons.star_outline_outlined,
-                      text: "Reviews",
-                      onTap: () {}),
-                  IconTextRow(
-                      icon: Icons.question_mark_outlined,
-                      text: "Questions to properties",
-                      onTap: () {}),
-                  IconTextRow(
-                      icon: Icons.account_balance_wallet_outlined,
-                      text: "Rewards & Wallet",
-                      onTap: () {}),
-                  IconTextRow(
-                      icon: Icons.cases_outlined,
-                      text: "My Trips",
-                      onTap: () {}),
-                  IconTextRow(
-                      icon: Icons.favorite_outline_outlined,
-                      text: "Wishlist",
-                      onTap: () {}),
-                  const Divider(
-                    color: Colors.grey,
-                    thickness: 1,
-                  ),
-                  IconTextRow(
-                      icon: Icons.local_activity_outlined,
-                      text: "My cash",
-                      onTap: () {}),
-                  IconTextRow(
-                      icon: Icons.card_giftcard_outlined,
-                      text: "My Gift Cards",
-                      onTap: () {}),
-                  IconTextRow(
-                      icon: Icons.credit_card,
-                      text: "Saved Cards",
-                      onTap: () {}),
-                  IconTextRow(
-                      icon: Icons.settings_outlined,
-                      text: "Settings",
-                      onTap: () {}),
-                  IconTextRow(
-                      icon: Icons.exit_to_app, text: "Logout", onTap: () {}),
-                ],
-              ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Card(
+          elevation: 4.0,
+          color: Colors.white,
+          shadowColor: Colors.black, // Shadow color
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconTextRow(
+                    icon: Icons.manage_accounts_outlined,
+                    text: "Manage your account",
+                    onTap: () {}),
+                IconTextRow(
+                    icon: Icons.star_outline_outlined,
+                    text: "Reviews",
+                    onTap: () {}),
+                IconTextRow(
+                    icon: Icons.question_mark_outlined,
+                    text: "Questions to properties",
+                    onTap: () {}),
+                IconTextRow(
+                    icon: Icons.cases_outlined,
+                    text: "My Bookings",
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyBookings(),
+                          ));
+                    }),
+                IconTextRow(
+                    icon: Icons.favorite_outline_outlined,
+                    text: "Wishlist",
+                    onTap: () {}),
+                IconTextRow(
+                    icon: Icons.settings_outlined,
+                    text: "Settings",
+                    onTap: () {}),
+                IconTextRow(
+                    icon: Icons.exit_to_app,
+                    text: "Logout",
+                    onTap: () {
+                      _logout(context);
+                    }),
+              ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void _logout(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Confirmation'),
+            content: const Text('Are you sure?'),
+            actions: [
+              ElevatedButton(
+                onPressed: () {
+                  FirebaseAuth.instance.signOut();
+                  Navigator.popUntil(
+                    context,
+                    (route) => route.isFirst,
+                  );
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => LoginScreen(),
+                      ));
+                },
+                child: const Text('Yes'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('No'),
+              ),
+            ],
+          );
+        });
   }
 }
 
